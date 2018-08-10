@@ -1,8 +1,9 @@
 # druid-monitoring-project
 prerequisite
 1. python 3.6.x
-2. nodejs higher than 8.x.x
+2. pip3 
 3. virtualenv
+4. nodejs higher than 8.x.x
 
 how to install
 
