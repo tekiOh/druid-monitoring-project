@@ -1,4 +1,4 @@
-# druid-monitoring-project\
+# druid-monitoring-project
 
 how to install
 
