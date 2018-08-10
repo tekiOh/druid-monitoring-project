@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+/***************************************************************************************
+   Home
+***************************************************************************************/
+.home_area {
+    .box {
+        // min-height:345px;
+
+        &.type_all {
+            display:table;
+            width:100%;
+            background:url(../images/bg_home_all.png) no-repeat center 50%;
+            background-size:cover;
+        }
+        &.type_all .box_inner {
+            display:table-cell;
+            text-align:center;
+            vertical-align:middle;
+            .box_filter {
+                margin-top:23px;
+            }
+        }
+        &.type_all {
+            .btn_area {
+                .btn_download {
+                    @include get-sprite($btn_download);
+                }
+                .btn_fullsize {
+                    @include get-sprite($btn_fullsize);
+                }
+                .btn_more {
+                    @include get-sprite($btn_more);
+                }
+            }
+            .title {
+                color:#fff;
+            }
+            .info_data {
+                display:block;
+                margin:15px 0 5px;
+                font-size:24px;
+                color:#fff;
+                font-weight:bold;
+
+                strong {
+                    font-size:30px;
+
+                }
+            }
+            .info_desc {
+                > em {
+                    position:relative;
+                    padding:0 9px;
+                    color:#b3c5cf;
+                    font-size:14px;
+
+                    &:before {
+                        position:absolute;
+                        left:0;
+                        top:50%;
+                        margin-top:-7px;
+                        height:14px;
+                        border-left:1px solid rgba(255,255,255,0.2);
+                        content:'';
+
+                    }
+                    &:first-of-type{
+                        &:before {
+                            display:none;
+                        }
+                    }
+                }
+            }
+
+            /* no-data */
+            .box_nodata {
+                padding:23px 0 0 0;
+                &:before {
+                    @include get-sprite($icon_nodata);
+                    content:'';
+                }
+            }
+            /* loading */
+            .loading_part {
+                &:before{
+                    background:url(../images/icon_loading2_w.gif);
+                    content:'';
+                }
+                &:after{
+                    display:none;
+                }
+            }
+        }
+    }
+}

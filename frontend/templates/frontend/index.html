@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<title>METATRON</title>
+
+    <!-- polaris css --->
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static "css/rome.css"%}"/>
+    <link rel="stylesheet" href="{% static "css/polaris.v2.css"%}"/>
+    <link rel="stylesheet" href="{% static "css/polaris-black.css"%}"/>
+    <script src="{% static "js/jquery/jquery.1.9.1.min.js"%}"></script>
+
+<!--    <link rel="stylesheet" href="css/polaris.v2.css"/>
+    <link rel="stylesheet" href="css/polaris-black.css"/>
+    <script src="js/jquery/jquery.1.9.1.min.js"></script> -->
+
+</head>
+<body class="polaris-black">
+    <!-- header -->
+    <div class="ddp-layout-header">
+        <!-- lnb -->
+        <!-- menu 클릭시 ddp-selected 추가 -->
+        <div class="ddp-layout-lnb">
+            <a href="javascript:" class="ddp-btn-lnbmenu"></a>
+
+            <ul class="ddp-list-lnb">
+                <!-- 클릭시 ddp-selected 추가 -->
+                <li class="ddp-selected">
+                    <div class="ddp-wrap-listmenu">
+                        <a href="javascript:">
+                            <span class="ddp-txt-lnbmenu">Cluster</span>
+                            <em class="ddp-icon-menuview"></em>
+                        </a>
+                        <!-- sub -->
+                        <div class="ddp-list-sub">
+                            <!-- submenu -->
+                            <ul class="ddp-list-sublnb">
+                                <li>
+                                    <a href="javascript:">
+                                        <em class="ddp-icon-dot"></em>
+                                        Overview
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:">
+                                        <em class="ddp-icon-dot"></em>
+                                        Nodes
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- //submenu -->
+                        </div>
+                        <!-- //sub -->
+                    </div>
+                </li>
+                <li>
+                    <div class="ddp-wrap-listmenu">
+                        <a href="javascript:">
+                            <span class="ddp-txt-lnbmenu">Datasource</span>
+                            <em class="ddp-icon-menuview"></em>
+                        </a>
+                        <!-- sub -->
+                        <div class="ddp-list-sub">
+                            <!-- submenu -->
+                            <ul class="ddp-list-sublnb">
+                                <li>
+                                    <a href="javascript:">
+                                        <em class="ddp-icon-dot"></em>
+                                        Data Storage
+                                    </a>
+                                </li>
+                                <!-- 선택시 ddp-selected -->
+                                <li class="ddp-selected">
+                                    <a href="javascript:">
+                                        <em class="ddp-icon-dot"></em>
+                                        Data Monitoring
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- //submenu -->
+                        </div>
+                        <!-- //sub -->
+                    </div>
+                </li>
+                <li>
+                    <div class="ddp-wrap-listmenu">
+                        <a href="javascript:">
+                            <span class="ddp-txt-lnbmenu">APIs Editor</span>
+                            <em class="ddp-icon-menuview"></em>
+                        </a>
+                        <!-- sub -->
+                        <div class="ddp-list-sub">
+                            <!-- submenu -->
+                            <ul class="ddp-list-sublnb">
+                                <!-- 선택시 ddp-selected -->
+                                <li class="ddp-selected">
+                                    <a href="javascript:">
+                                        <em class="ddp-icon-dot"></em>
+                                        Editor
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- //submenu -->
+                        </div>
+                        <!-- //sub -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- //lnb -->
+        <h1 class="ddp-h1-logo"><a href="javascript:"><em class="ddp-icon-logo">METATRON</em><em class="ddp-icon-logo logo-last">ENGINE MONITORING</em></a></h1>
+        <div class="ddp-ui-headright">
+            <a href="javascript:" class="ddp-btn-search"></a>
+            <!-- photo -->
+            <!-- 클릭시 ddp-selected 추가 -->
+            <div class="ddp-wrap-myinfo">
+                <a href="javascript:" class="ddp-data-photo">
+                    {% load static %}
+                    <img src="{% static "images/img_photo.png" %}" />
+                </a>
+                <!-- my info -->
+                <div class="ddp-ui-sub-myinfo">
+                    <div class="ddp-wrap-data">
+                        <span class="ddp-data-name">Brittany Eutychia Sadler</span>
+                        <span class="ddp-data-mail">brittanyemailme@international.com</span>
+                    </div>
+
+                    <ul class="ddp-list-sub-myinfo">
+                        <li><a href="javscript:">사용자 정보 관리</a></li>
+                        <li><a href="javscript:">로그아웃</a></li>
+                    </ul>
+                </div>
+                <!-- //my info -->
+            </div>
+            <!-- //photo -->
+
+        </div>
+
+    </div>
+    <!-- //header -->
+
+
+    <!-- contents -->
+    <div class="ddp-layout-contents">
+        <em class="ddp-bg-back"></em>
+        <div class="ddp-ui-contents-in">
+            <!-- top -->
+            <div class="ddp-ui-contents-top">
+                <div class="ddp-ui-title">
+                    Cluster
+                </div>
+
+                <!-- tab -->
+                <ul class="ddp-list-top-tab">
+                    <li class="ddp-selected">
+                        <a href="#">Overview</a>
+                    </li>
+                    <li>
+                        <a href="#">Nodes</a>
+                    </li>
+                </ul>
+                <!-- //tab -->
+
+            </div>
+            <!-- //top -->
+
+            <div class="ddp-ui-contents-list ddp-log-statistics">
+
+                <div class="ddp-clear">
+                    <div class="ddp-col-12">
+                        <div class="ddp-data-title">
+                            Summary
+{#                          <a href="javascript:" class="ddp-more">more</a>#}
+                        </div>
+
+                        <table class="ddp-table-form ddp-table-type3 ddp-cursor-none">
+                            <colgroup>
+                                <col width="200px">
+                                <col width="200px">
+                                <col width="200px">
+                                <col width="*">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Server
+                                    </th>
+                                    <th>
+                                        Node
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>
+                                        ETC.
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="ddp-hover-tooltip">
+                                        <span class="ddp-txt-long">localhost
+                                        </span>
+                                        <div class="ddp-ui-tooltip-info ddp-down">
+                                            <em class="ddp-icon-view-top"></em>
+                                            HOST : localhost <br/>
+                                            PORT : 8082
+                                        </div>
+                                    </td>
+                                    <td>
+                                        Broker : 8082
+                                    </td>
+                                    <td>
+                                        <span class="ddp-data-state ddp-success">SUCCESS</span>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ddp-hover-tooltip">
+                                        <span class="ddp-txt-long ">localhost
+                                        </span>
+                                        <div class="ddp-ui-tooltip-info ddp-down">
+                                            <em class="ddp-icon-view-top"></em>
+                                            HOST : localhost <br/>
+                                            PORT : 8081
+                                        </div>
+                                    </td>
+                                    <td>
+                                        Coordinator : 8081
+                                    </td>
+                                    <td>
+                                        <span class="ddp-data-state ddp-success">SUCCESS</span>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ddp-hover-tooltip">
+                                        <span class="ddp-txt-long ">localhost
+                                        </span>
+                                        <div class="ddp-ui-tooltip-info ddp-down">
+                                            <em class="ddp-icon-view-top"></em>
+                                            HOST : localhost <br/>
+                                            PORT : 8083
+                                        </div>
+                                    </td>
+                                    <td>
+                                        Historical : 8083
+                                    </td>
+                                    <td>
+                                        <span class="ddp-data-state ddp-success">SUCCESS</span>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="ddp-hover-tooltip">
+                                        <span className="ddp-txt-long ">localhost
+                                        </span>
+                                        <div className="ddp-ui-tooltip-info ddp-down">
+                                            <em className="ddp-icon-view-top"></em>
+                                            HOST : localhost <br/>
+                                            PORT : 8090
+                                        </div>
+                                    </td>
+                                    <td>
+                                        Overlord : 8090
+                                    </td>
+                                    <td>
+                                        <span className="ddp-data-state ddp-success">SUCCESS</span>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="ddp-hover-tooltip">
+                                        <span className="ddp-txt-long ">localhost
+                                        </span>
+                                        <div className="ddp-ui-tooltip-info ddp-down">
+                                            <em className="ddp-icon-view-top"></em>
+                                            HOST : localhost <br/>
+                                            PORT : 8091
+                                        </div>
+                                    </td>
+                                    <td>
+                                        MiddleManager : 8091
+                                    </td>
+                                    <td>
+                                        <span className="ddp-data-state ddp-success">SUCCESS</span>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="ddp-hover-tooltip">
+                                        <span className="ddp-txt-long ">localhost
+                                        </span>
+                                        <div className="ddp-ui-tooltip-info ddp-down">
+                                            <em className="ddp-icon-view-top"></em>
+                                            HOST : localhost <br/>
+                                            PORT : 8100
+                                        </div>
+                                    </td>
+                                    <td>
+                                        MiddleManager : 8100
+                                    </td>
+                                    <td>
+                                        <span className="ddp-data-state ddp-success">SUCCESS</span>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="ddp-hover-tooltip">
+                                        <span className="ddp-txt-long ">localhost
+                                        </span>
+                                        <div className="ddp-ui-tooltip-info ddp-down">
+                                            <em className="ddp-icon-view-top"></em>
+                                            HOST : localhost <br/>
+                                            PORT : 8101
+                                        </div>
+                                    </td>
+                                    <td>
+                                        MiddleManager : 8101
+                                    </td>
+                                    <td>
+                                        <span className="ddp-data-state ddp-success">SUCCESS</span>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- overview_KPI charts-->
+                <div id="overview_KPIs"class="ddp-clear">
+                    <!-- overview_KPI in detail when clicked-->
+                </div>
+                <!-- //overview_KPI charts -->
+
+                <!--nodes tab -->
+                <div id="node_select" class="ddp-clear"></div>
+                <div id="node_details" class="ddp-clear"></div>
+
+{#                <div id="nodes_coordinator" class="ddp-clear"></div>#}
+{#                <div id="nodes_broker" class="ddp-clear"></div>#}
+{#                <div id="nodes_historical" class="ddp-clear"></div>#}
+{#                <div id="nodes_overlord" class="ddp-clear"></div>#}
+{#                <div id="nodes_middleManager" class="ddp-clear"></div>#}
+                <!--//nodes tab -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- //contents -->
+    {% load static %}
+    <script src="{% static "frontend/main.js" %}"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+</body>
+</html>

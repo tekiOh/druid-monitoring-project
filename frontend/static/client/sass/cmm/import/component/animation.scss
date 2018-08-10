@@ -1,0 +1,19 @@
+/***************************************************************************************
+   Animation Key Frame
+***************************************************************************************/
+// Loading
+@keyframes cmm_loading {
+    50% {
+        background-color:#fff;
+        transform:translateY(-14px) scale(0.5);
+
+        @include radius(50%);
+    }
+}
+
+// 현재시간
+@keyframes cmm_time {
+    50% {
+        opacity:0.2;
+    }
+}

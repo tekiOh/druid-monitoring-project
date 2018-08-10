@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/***************************************************************************************
+   Setting
+***************************************************************************************/
+* {
+    margin:0; padding:0;
+    font-family:"SpoqaHanSans",HelveticaNeue,"Apple SD Gothic Neo",sans-serif;
+}
+html,body {
+  	-webkit-font-smoothing:antialiased;
+  	-moz-osx-font-smoothing:grayscale;
+    -ms-text-size-adjust:100%;
+  	-webkit-text-size-adjust:100%;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    font-size:16px;
+    color:#414141;
+}
+ul,ol {list-style:none;}
+img,button,fieldset {border:0 none;}
+table {width:100%; border-collapse:collapse; border-spacing:0;}
+em,address {font-style:normal;}
+a,u {text-decoration:none;}
+fieldset,legend {border:0;}
+legend {height:0; visibility:hidden;}
+button {background:none;}
+button * {position:relative;}
+button::-moz-focus-inner {padding:0; border:0;}
+input::-ms-clear,
+input[type=password]::-ms-reveal{display:none;}
+input,textarea {
+    @extend %box-sizing;
+}
+textarea {resize:none;}
+a,button,input,select,textarea {outline:0;}
+button,select,input[type=checkbox],input[type=radio] {cursor:pointer;}
+select,input[type=checkbox],input[type=radio]{
+    -webkit-appearance:textfield;
+    -moz-appearance:textfield;
+    -ms-appearance:textfield;
+    appearance:textfield;
+}
+
+/***************************************************************************************
+   Web Font
+***************************************************************************************/
+@font-face {
+    @include webFont("SpoqaHanSans",SpoqaHanSans-Bold,bold);
+}
+@font-face {
+    @include webFont("SpoqaHanSans",SpoqaHanSans-Regular,normal);
+}
+@font-face {
+    @include webFont("SpoqaHanSans",SpoqaHanSans-Thin,300);
+}
