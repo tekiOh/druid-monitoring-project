@@ -102,7 +102,7 @@ export default class NodeSelect extends Component{
 
     componentWillMount(){
 
-        console.log("NodeSelect : in componentWillMount")
+        // console.log("NodeSelect : in componentWillMount")
         // console.log(this.props.servers)
 
         this.getNodes(this.props.servers);
@@ -189,11 +189,11 @@ export default class NodeSelect extends Component{
     }
 
     makeNodeOptions (nodeList){
-        console.log("in makeNodeOptions")
-        console.log(nodeList)
+        // console.log("in makeNodeOptions")
+        // console.log(nodeList)
         Object.values(nodeList).map(nodes =>(
             Object.values(nodes).map(node=>(
-                console.log(node),
+                // console.log(node),
                 this.state.nodeOptions.push({value : node, label : node.toString().split("/")[2]})
             ))
 
@@ -350,7 +350,6 @@ export default class NodeSelect extends Component{
                                 <Datetime className = "ddp-btn-toggle ddp-data-range" onChange={this.handleStart} utc={true} value={this.state.start}>DateTime Start </Datetime>
                                 <label className = "ddp-label-type">End Time</label>
                                 <Datetime className = "ddp-btn-toggle ddp-data-range" onChange={this.handleEnd} utc={true} value={this.state.end}>DateTime End </Datetime>
-
                             </div>
                         </div>
 

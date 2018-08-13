@@ -13,10 +13,6 @@ import * as U from './utils'
 import key from "weak-key";
 
 
-let stime = new Date();
-stime.setHours(stime.getHours()-1);
-let etime = new Date();
-
 export default class Nodes extends Component{
 
     constructor() {
@@ -119,18 +115,16 @@ export default class Nodes extends Component{
                 <div id="detail-charts" className="ddp-clear">
 
                     {/*this.props.data ={druid/dev/broker:localhost:8082:{"jvm":{"jvm/mem/used":{avg:[],percent:[],kpi:{},min:100,max:100},"jvm/pool/used":{~~}}},"query/~":{} ,"blahblah":{~}, etc.}*/}
-
-
-                    {console.log("in chart")},
-                    {console.log(this.props.data)},
-                    {console.log(this.props.serverNodeHost)},
+                    {/*{console.log("in chart")}*/}
+                    {/*{console.log(this.props.data)}*/}
+                    {/*{console.log(this.props.serverNodeHost)}*/}
                     {Object.keys(this.props.data[this.props.serverNodeHost]).map(metric=>
                         (
                          <div className="ddp-clear">
-                                    {console.log("after mapping metric")}
-                                    {console.log(metric)}
+                                    {/*{console.log("after mapping metric")}*/}
+                                    {/*{console.log(metric)}*/}
                                    <div className="ddp-data-title">
-                                       {metric}
+                                       {U.changeMetric({metric})}
                                    </div>
 
                                    <ReactEcharts
