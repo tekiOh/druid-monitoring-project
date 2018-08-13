@@ -182,7 +182,7 @@ def add_percent(metric_list):
         key_list = list(v.keys())
         for i in range(0, len(key_list)):
             for j in range(i + 1, len(key_list)):
-                if key_list[i].split('/')[:-1] == key_list[j].split('/')[:-1]:
+                if key_list[i].split('/')[:-1] == key_list[j].split('/')[:-1] and key_list[i].split('/')[0] == 'jvm':
                     for f, s in zip(v[key_list[i]], v[key_list[j]]):
                         s['percent'] = round((s['avg'] / (f['avg'] + 0.0000000000001)) * 100, 1)
                     break
