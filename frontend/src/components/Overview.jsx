@@ -143,7 +143,7 @@ export default class Overview extends Component{
                     {Object.keys(this.props.data).map(metric=>
                     (<div className="ddp-col-2">
                         {/*{console.log("after mapping metric of each host")}*/}
-                        {/*{console.log(metric)}*/}
+                        {console.log(metric)}
                        <div className="ddp-data-title">
                            {U.changeMetric({metric})}
                        </div>
