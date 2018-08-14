@@ -1,11 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
-
 //import to use echart-react component
-import ReactEcharts from 'echarts-for-react';
-var echarts = require('echarts');
-
 import EchartsReactCore from './core';
+
+var echarts = require('echarts');
 
 // export the Component the echarts Object.
 export default class EchartsReact extends EchartsReactCore {
