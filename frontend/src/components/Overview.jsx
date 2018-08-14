@@ -1,7 +1,6 @@
-import React, {Component} from “react”;
-import PropTypes from “prop-types”;
-import ‘echarts/theme/macarons.js’;
-import OverviewEachChart from ‘./OverviewEachChart’;
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import OverviewEachChart from './OverviewEachChart';
 
 export default class Overview extends Component{
 
@@ -24,16 +23,16 @@ export default class Overview extends Component{
    render(){
        return(
            <div>
-               <div className=“ddp-clear”>
+               <div className='ddp-clear'>
 
-                   <div className=“ddp-wrap-edit”>
-                       <div className=“ddp-ui-edit-option”>
-                           <a href=“#” className=“ddp-btn-toggle ddp-data-range”>{this.props.serverNodeHost}</a>
+                   <div className='ddp-wrap-edit'>
+                       <div className='ddp-ui-edit-option'>
+                           <a href='#' className='ddp-btn-toggle ddp-data-range'>{this.props.serverNodeHost}</a>
                        </div>
                    </div>
 
                    <div>
-                       <div className=“ddp-clear”>
+                       <div className='ddp-clear'>
                        </div>
                    </div>
 
