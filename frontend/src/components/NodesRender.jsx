@@ -1,7 +1,6 @@
 import NodeListProvider from './NodeListProvider'
 import * as U from './utils'
-import React,{Component} from "react";
-import PropTypes from "prop-types";
+import React, {Component} from "react";
 import NodeSelect from "./NodeSelect";
 
 export default class NodesRender extends Component {

@@ -1,6 +1,5 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import ReactEcharts from './App';
 
 import Datetime from "react-datetime";
 import Select from "react-select"
@@ -9,9 +8,6 @@ import 'react-datetime/css/react-datetime.css'
 import PropTypes from "prop-types";
 import 'echarts/theme/macarons.js';
 import * as echarts from 'echarts';
-
-import * as U from './utils'
-import key from "weak-key";
 import Nodes from "./Nodes";
 
 

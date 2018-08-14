@@ -1,10 +1,9 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
 import ReactEcharts from './App';
 import PropTypes from "prop-types";
 import 'echarts/theme/macarons.js';
 
 import * as U from './utils'
-import key from "weak-key";
 
 export default class OverviewEachChart extends Component{
 

@@ -1,12 +1,8 @@
 import React, {Component} from "react";
-import ReactEcharts from './App';
 import 'react-datetime/css/react-datetime.css'
 
 import PropTypes from "prop-types";
 import 'echarts/theme/macarons.js';
-import * as echarts from 'echarts';
-
-import * as U from './utils'
 import NodesEachChart from "./NodesEachChart";
 
 

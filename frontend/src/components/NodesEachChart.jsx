@@ -10,7 +10,6 @@ import 'react-datetime/css/react-datetime.css';
 import 'echarts/theme/macarons.js';
 
 
-
 export default class NodesEachChart extends Component {
 
     constructor() {
