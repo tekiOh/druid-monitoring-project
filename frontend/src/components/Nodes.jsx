@@ -6,12 +6,16 @@ import Select from "react-select"
 import 'react-datetime/css/react-datetime.css'
 
 import PropTypes from "prop-types";
-import 'echarts/theme/macarons.js';
+import '../../../macarons.js';
 import * as echarts from 'echarts';
 
 import * as U from './utils'
 import key from "weak-key";
 
+
+let stime = new Date();
+stime.setHours(stime.getHours()-1);
+let etime = new Date();
 
 export default class Nodes extends Component{
 
@@ -53,7 +57,7 @@ export default class Nodes extends Component{
         return echarts.util.merge({
             left: 90,
             right: 90,
-            top: top,
+            top: (top)*0.1,
             height: height
         }, opt || {}, true);
 
@@ -63,7 +67,6 @@ export default class Nodes extends Component{
         let axisLabelFlag = false;
         if (gridIndex % 2 === 0) {
             axisLabelFlag = true;
-
         }
 
         return echarts.util.merge({
@@ -72,10 +75,18 @@ export default class Nodes extends Component{
             //统一时间轴数据
             data: timestamp,
             axisLabel: {
+                fontFamily: 'SpoqaHanSans',
+                formatter: function(value){
+                       let date = new Date(value);
+                       let text1=[date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate()];
+                       let text2=[date.getUTCHours(),date.getUTCMinutes()];
+                       return text1.join('/')+' '+text2.join(':');},
                 show: axisLabelFlag,
-                /*          formatter: function(value) {
-                              return echarts.format.formatTime('MM-dd', value);
-                          }*/
+            },
+            axisLine:{
+                lineStyle:{
+                    color:"white"
+                }
             },
         }, opt || {}, true);
     }
@@ -84,17 +95,17 @@ export default class Nodes extends Component{
 
         return echarts.util.merge({
             type: 'value',
-            nameLocation: 'middle',
-            nameGap: '50',
             gridIndex: gridIndex,
-
-            nameTextStyle: {
-                color: '#333'
+            axisLine:{
+                lineStyle:{
+                    color:"white"
+                }
             },
             axisTick: {
                 show: false
             },
             axisLabel: {
+                fontFamily: 'SpoqaHanSans',
                 show: true
             },
         }, opt || {}, true);
@@ -115,18 +126,21 @@ export default class Nodes extends Component{
                 <div id="detail-charts" className="ddp-clear">
 
                     {/*this.props.data ={druid/dev/broker:localhost:8082:{"jvm":{"jvm/mem/used":{avg:[],percent:[],kpi:{},min:100,max:100},"jvm/pool/used":{~~}}},"query/~":{} ,"blahblah":{~}, etc.}*/}
-                    {/*{console.log("in chart")}*/}
-                    {/*{console.log(this.props.data)}*/}
-                    {/*{console.log(this.props.serverNodeHost)}*/}
+
+
+                    {console.log("in chart")},
+                    {console.log(this.props.data)},
+                    {console.log(this.props.serverNodeHost)},
                     {Object.keys(this.props.data[this.props.serverNodeHost]).map(metric=>
                         (
                          <div className="ddp-clear">
-                                    {/*{console.log("after mapping metric")}*/}
-                                    {/*{console.log(metric)}*/}
-                                   <div className="ddp-data-title">
-                                       {U.changeMetric({metric})}
-                                   </div>
+                                    {console.log("after mapping metric")}
+                                    {console.log(metric)}
+                                   <div className="ddp-data-title"><strong>
+                                       {metric}
+                                   </strong></div>
 
+                             <div className="ddp-box-graph">
                                    <ReactEcharts
                                        option={this.getOption(
                                            //data[metric] =data['jvm'] = {"jvm/mem/used":{"avg":[]},"~":{},~}
@@ -139,10 +153,11 @@ export default class Nodes extends Component{
                                            // {hasP : hasPercent({data : data["druid/dev/broker:localhost:8082"]['jvm/mem/used']})},
                                            //{serverNodeHost: 'druid/dev/broker:localhost:8082'}
                                        )}
-                                       style={{height: '100%', width: '100%'}}
-                                       className={"ddp-box-chart"}
+                                       style={{height: '90%', width: '100%'}}
+                                       className={"ddp-box-graph"}
                                        theme={'macarons'}
                                    />
+                             </div>
                         </div>)
                         )}
                 </div>)
@@ -160,6 +175,10 @@ export default class Nodes extends Component{
 
                 x: 'center',
                 text: serverNodeHost,
+                textStyle: {
+                    fontFamily: 'SpoqaHanSans',
+                    color: '#333'
+                },
                 subtext: this.overviewSubTitle,
                 padding: 0,
 
@@ -170,7 +189,7 @@ export default class Nodes extends Component{
                 trigger: 'axis',
                 transitionDuration: 0,
                 confine: true,
-                bordeRadius: 4,
+                borderRadius: 4,
                 borderWidth: 1,
                 borderColor: '#333',
                 backgroundColor: 'rgba(255,255,255,0.9)',
@@ -263,6 +282,10 @@ export default class Nodes extends Component{
 
                 x: 'center',
                 text: serverNodeHost,
+                textStyle: {
+                    fontFamily: 'SpoqaHanSans',
+                    color: 'white'
+                },
                 subtext: this.overviewSubTitle,
                 padding: 0,
 
@@ -273,7 +296,7 @@ export default class Nodes extends Component{
                 trigger: 'axis',
                 transitionDuration: 0,
                 confine: true,
-                bordeRadius: 4,
+                borderRadius: 4,
                 borderWidth: 1,
                 borderColor: '#333',
                 backgroundColor: 'rgba(255,255,255,0.9)',
