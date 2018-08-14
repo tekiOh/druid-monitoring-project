@@ -63,7 +63,7 @@ export const changeMetric =({metric}) =>{
         case "task/run/time":
             return "Task 소요 시간"
         case "ingest/events/processed":
-            return "Ingest된 event의 양"
+            return "Ingest된 event 양"
         case "ingest/events/thrownAway":
             return "Ingest 실패한 event 양"
         case "ingest/events/unparseable":
