@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React from "react";
 import DataProvider from './DataProvider'
 import Overview from './Overview'
 import * as U from './utils'
