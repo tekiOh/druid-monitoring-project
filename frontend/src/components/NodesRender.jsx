@@ -28,8 +28,8 @@ export default class NodesRender extends Component {
 
               <NodeListProvider endpoint="data/nodelist"
                   render={nodeList_all=>(
-                       console.log("NodesRender"),
-                       console.log(nodeList_all),
+                       // console.log("NodesRender"),
+                       // console.log(nodeList_all),
                       <NodeSelect
                           // nodeList_all = {"localhost": {"druid/dev/coordinator": ["8081"], "druid/dev/broker": ["8082"], "druid/dev/historical": ["8083"], "druid/dev/overlord": ["8090"], "druid/dev/middleManager": ["8091", "8100"]}}
                           nodeList_all={nodeList_all}

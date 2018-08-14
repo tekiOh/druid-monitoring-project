@@ -145,7 +145,7 @@ export default class Overview extends Component{
                         {/*{console.log("after mapping metric of each host")}*/}
                         {/*{console.log(metric)}*/}
                        <div className="ddp-data-title">
-                           {metric}
+                           {U.changeMetric({metric})}
                        </div>
 
                        <div className="ddp-box-chart">
