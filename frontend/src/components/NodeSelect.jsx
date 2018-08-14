@@ -348,8 +348,7 @@ export default class NodeSelect extends Component{
                             <div className="ddp-ui-edit-option">
                                 <label className="ddp-label-type">Start</label>
                                 <Datetime className = "ddp-btn-toggle ddp-data-range" onChange={this.handleStart} utc={true} value={this.state.start}>DateTime Start </Datetime>
-                                <div>         </div>
-                                {/**/}
+                                <div>            </div>
                                 <label className = "ddp-label-type">End</label>
                                 <Datetime className = "ddp-btn-toggle ddp-data-range" onChange={this.handleEnd} utc={true} value={this.state.end}>DateTime End </Datetime>
                             </div>

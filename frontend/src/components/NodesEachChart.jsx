@@ -311,11 +311,11 @@ export default class NodesEachChart extends Component {
     }
 
     render() {
-        console.log("NodesEachChart render")
-
-        console.log(this.props.data)
-        console.log(this.props.metric)
-        console.log(this.props.serverNodeHost)
+        // console.log("NodesEachChart render")
+        //
+        // console.log(this.props.data)
+        // console.log(this.props.metric)
+        // console.log(this.props.serverNodeHost)
 
         return (<div className="ddp-clear">
                 {/*{console.log(this.props.metric)}*/}
@@ -335,7 +335,7 @@ export default class NodesEachChart extends Component {
                         //{serverNodeHost: 'druid/dev/broker:localhost:8082'}
                     )}
                     style={{height: '90%', width: '100%'}}
-                    className={"dpdp-box-grah"}
+                    className={"ddp-box-graph"}
                     theme={'macarons'}
                 />
             </div>

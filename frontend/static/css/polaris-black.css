@@ -45,3 +45,4 @@ table.ddp-table-list-form tbody tr:nth-child(even) td {background:none;}
 .ddp-data-range .form-control:nth-child(2) {margin-left:20px;}
 .ddp-ui-contents-list .ddp-ui-option .ddp-wrap-edit:last-child {margin-left:40px;}
 .ddp-wrap-edit .ddp-ui-edit-option {margin-bottom:20px;}
+.ddp-box-graph {border:1px solid #262626;height:250px;background:#2e363f;}
