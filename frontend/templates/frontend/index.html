@@ -161,12 +161,12 @@
                 </div>
 
                 <!-- tab -->
-                <ul class="ddp-list-top-tab">
+                <ul id="top" class="ddp-list-top-tab">
                     <li class="ddp-selected">
-                        <a href="#">Overview</a>
+                        <a href="#overview">Overview</a>
                     </li>
                     <li>
-                        <a href="#">Nodes</a>
+                        <a href="#nodes">Nodes</a>
                     </li>
                 </ul>
                 <!-- //tab -->
@@ -347,14 +347,29 @@
                     </div>
                 </div>
                 <!-- overview_KPI charts-->
-                <div id="overview_KPIs"class="ddp-clear">
-                    <!-- overview_KPI in detail when clicked-->
+                <div id="overview">
+                    <div id="overview_KPIs"class="ddp-clear"></div>
                 </div>
                 <!-- //overview_KPI charts -->
 
+                <div align="right" class="ddp-clear">
+                    <button class="ddp-ui-edit-button"><a href="#top">Top</a></button>
+                </div>
+
+
                 <!--nodes tab -->
-                <div id="node_select" class="ddp-clear"></div>
-                <div id="node_details" class="ddp-clear"></div>
+                <div id="nodes">
+                    <div id="node_select" class="ddp-clear"></div>
+
+                    <div id="node_details" class="ddp-clear"></div>
+
+                    <div align="right" class="ddp-clear">
+                        <button class="ddp-ui-edit-button"><a href="#top">Top</a></button>
+                    </div>
+
+
+                </div>
+                <!--//nodes tab -->
 
 {#                <div id="nodes_coordinator" class="ddp-clear"></div>#}
 {#                <div id="nodes_broker" class="ddp-clear"></div>#}
@@ -372,6 +387,7 @@
     <!-- //contents -->
     {% load static %}
     <script src="{% static "frontend/main.js" %}"></script>
+    <script src="{% static "js/scroll.js"%}"></script>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
