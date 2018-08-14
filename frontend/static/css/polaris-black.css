@@ -7,7 +7,7 @@
 .polaris-black ul.ddp-list-top-tab li a {border-bottom-color:transparent;}
 .polaris-black ul.ddp-list-top-tab li.ddp-selected a {color:#fff;border-bottom-color:#fff!important;}
 
-.ddp-layout-header h1.ddp-h1-logo em.ddp-icon-logo {background:none;color:#fff;font-size:17px;line-height:14px;width:95px;}
+.ddp-layout-header h1.ddp-h1-logo em.ddp-icon-logo {background:none;color:#fff;font-size:17px;line-height:14px;width:100px;}
 .ddp-layout-header h1.ddp-h1-logo em.ddp-icon-logo.logo-last {color:#6c7ee7;width:190px;}
 .ddp-log-statistics .ddp-data-title {color:#98a6ae;}
 .polaris-black .ddp-log-statistics .ddp-box-chart{border:1px solid #262626;background:#2e363f;}
@@ -17,7 +17,7 @@
 .ddp-wrap-edit .ddp-ui-edit-option a.ddp-btn-toggle.ddp-selected{background-color:#5c6bc1;color:#b7c3db;}
 .ddp-ui-calen .ddp-box-calen{border-color:#303a45;}
 .ddp-wrap-edit .ddp-ui-edit-option a.ddp-btn-toggle.ddp-data-range {padding-left: 15px;padding-right: 15px;color: #90969f;}
-.ddp-wrap-edit .ddp-ui-edit-option .ddp-type-selectbox {border: 1px solid #303a45;}
+.ddp-wrap-edit .ddp-ui-edit-option .ddp-type-selectbox {border:none;padding:0;}
 
 input {background-color:#22282e;}
 input.ddp-input-typebasic {border-radius:0;}
@@ -32,3 +32,16 @@ table.ddp-table-type3 tbody tr td{background:none;border-bottom: 1px solid #2d34
 table.ddp-table-type3 tbody tr:nth-child(odd) td{background:none;}
 table.ddp-table-form tbody tr:last-of-type td {border-bottom: 1px solid #2d343d;}
 table.ddp-table-type3 tbody tr td:first-of-type, table.ddp-table-type3 tbody tr td:last-of-type{border-left:none;}
+
+table.ddp-table-form tbody tr:nth-child(odd) td {background:none;}
+able.ddp-table-type3 tbody tr:nth-child(odd) td {background:none;}
+table.ddp-table-listview tbody tr:nth-child(odd) td {background:none;}
+table.ddp-table-list-form tbody tr:nth-child(odd) td {background:none;}
+table.ddp-table-list-form tbody tr:nth-child(even) td {background:none;}
+
+.ddp-ui-contents-list .ddp-ui-option .ddp-wrap-edit{margin-left:25px;}
+.ddp-ui-edit-button {padding: 10px;border-radius: 3px;border: 1px solid #d0d1d7;}
+.form-control{height:24px;padding: 6px 10px;}
+.ddp-data-range .form-control:nth-child(2) {margin-left:20px;}
+.ddp-ui-contents-list .ddp-ui-option .ddp-wrap-edit:last-child {margin-left:40px;}
+.ddp-wrap-edit .ddp-ui-edit-option {margin-bottom:20px;}
