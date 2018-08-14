@@ -22,6 +22,7 @@ const OverviewKPIs=({nodeList_all,servers})=> (
                         //endpoint={"overview/coordinator"}
                         (<DataProvider endpoint={"data/"+U.getNode({node})}
                               render={data=>(
+                                  // console.log('entering Overview'),
                                   // console.log(nodeList_all),
                                   // console.log(server),
                                   <Overview

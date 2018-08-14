@@ -1,391 +1,692 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<title>METATRON</title>
-
-    <!-- polaris css --->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     {% load static %}
+{#    <link rel="stylesheet" href="../css/ui.css"/>#}
+    <link rel="stylesheet" href="{% static "css/ui.css"%}"/>
 
-    <link rel="stylesheet" href="{% static "css/rome.css"%}"/>
-    <link rel="stylesheet" href="{% static "css/polaris.v2.css"%}"/>
-    <link rel="stylesheet" href="{% static "css/polaris-black.css"%}"/>
-    <script src="{% static "js/jquery/jquery.1.9.1.min.js"%}"></script>
-
-<!--    <link rel="stylesheet" href="css/polaris.v2.css"/>
-    <link rel="stylesheet" href="css/polaris-black.css"/>
-    <script src="js/jquery/jquery.1.9.1.min.js"></script> -->
+    <title>METATRON ENGINE MONITORING</title>
 
 </head>
-<body class="polaris-black">
-    <!-- header -->
-    <div class="ddp-layout-header">
-        <!-- lnb -->
-        <!-- menu 클릭시 ddp-selected 추가 -->
-        <div class="ddp-layout-lnb">
-            <a href="javascript:" class="ddp-btn-lnbmenu"></a>
 
-            <ul class="ddp-list-lnb">
-                <!-- 클릭시 ddp-selected 추가 -->
-                <li class="ddp-selected">
-                    <div class="ddp-wrap-listmenu">
-                        <a href="javascript:">
-                            <span class="ddp-txt-lnbmenu">Cluster</span>
-                            <em class="ddp-icon-menuview"></em>
-                        </a>
-                        <!-- sub -->
-                        <div class="ddp-list-sub">
-                            <!-- submenu -->
-                            <ul class="ddp-list-sublnb">
-                                <li>
-                                    <a href="javascript:">
-                                        <em class="ddp-icon-dot"></em>
-                                        Overview
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:">
-                                        <em class="ddp-icon-dot"></em>
-                                        Nodes
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- //submenu -->
-                        </div>
-                        <!-- //sub -->
+<body>
+<!-- GNB -->
+<div class="layout-gnb">
+    <a href="javascript:" class="gnb-menu"></a>
+
+    <a href="javascript:" class="gnb-logo"><img src="{% static "images/icon_logo.png"%}" alt="METATRON ENGINE MONITORING"></a>
+    <div class="ui-gnb-option">
+        <!-- range -->
+        <!--
+            [D] : 클릭시 is-selected 추가
+        -->
+        <div class="data-range is-selected">
+            <span class="txt-range">Data Range 2016-11-27 24:00:00 ~ 2017-11-28 16:05:14</span>
+
+            <!-- popup -->
+            <div class="box-popup type-time-interval">
+                <span class="txt-title">Time Interval</span>
+                <div class="txt-error-det">
+                    <!-- component tab button -->
+                    <div class="component-tab-button2">
+                        <ul class="list-tab-button">
+                            <li><a href="javascript:">없음</a></li>
+                            <li class="is-selected"><a href="javascript:">1초</a></li>
+                            <li><a href="javascript:">3초</a></li>
+                            <li><a href="javascript:">5초</a></li>
+                            <li><a href="javascript:">10초</a></li>
+                            <li><a href="javascript:">30초</a></li>
+                        </ul>
                     </div>
+                    <!--// component tab button -->
+                    <!-- edit -->
+                    <div class="form-option">
+                        <div class="txt-label">Custom range</div>
+                        <!-- calen -->
+                        <div class="component-calen is-clear type-white">
+                            <div class="box-calen">
+                                <input type="text" class="type-input" value="2017-30-30 12:00" >
+                            </div>
+                            <span class="ddp-bar">~</span>
+                            <div class="box-calen">
+                                <input type="text" class="type-input ddp-data-calen " value="2017-30-30 12:00">
+                            </div>
+                        </div>
+                        <!-- //calen -->
+                    </div>
+                    <!-- //edit -->
+                </div>
+            </div>
+            <!-- //popup -->
+        </div>
+        <!-- //range -->
+        <a href="javascript:" class="gnb-search"></a>
+        <a href="javascript:" class="gnb-alarm"></a>
+        <span class="gnb-profile">
+            <link rel="stylesheet" href="{% static "css/ui.css"%}"/>
+{#            <img src="../images/sample_profile.png" >#}
+            <img src="{% static "images/sample_profile.png"%}" >
+        </span>
+    </div>
+</div>
+<!-- //GNB -->
+<!-- contents -->
+<div class="layout-contents">
+    <!-- top -->
+    <div class="ui-top">
+        <div class="txt-cluster">CLUSTER</div>
+        <!-- component tab -->
+        <div class="component-tab-menu">
+            <ul class="list-tab-menu">
+                <li class="is-selected">
+                    <a href="#overview_wrap">Overview</a>
                 </li>
                 <li>
-                    <div class="ddp-wrap-listmenu">
-                        <a href="javascript:">
-                            <span class="ddp-txt-lnbmenu">Datasource</span>
-                            <em class="ddp-icon-menuview"></em>
-                        </a>
-                        <!-- sub -->
-                        <div class="ddp-list-sub">
-                            <!-- submenu -->
-                            <ul class="ddp-list-sublnb">
-                                <li>
-                                    <a href="javascript:">
-                                        <em class="ddp-icon-dot"></em>
-                                        Data Storage
-                                    </a>
-                                </li>
-                                <!-- 선택시 ddp-selected -->
-                                <li class="ddp-selected">
-                                    <a href="javascript:">
-                                        <em class="ddp-icon-dot"></em>
-                                        Data Monitoring
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- //submenu -->
-                        </div>
-                        <!-- //sub -->
-                    </div>
-                </li>
-                <li>
-                    <div class="ddp-wrap-listmenu">
-                        <a href="javascript:">
-                            <span class="ddp-txt-lnbmenu">APIs Editor</span>
-                            <em class="ddp-icon-menuview"></em>
-                        </a>
-                        <!-- sub -->
-                        <div class="ddp-list-sub">
-                            <!-- submenu -->
-                            <ul class="ddp-list-sublnb">
-                                <!-- 선택시 ddp-selected -->
-                                <li class="ddp-selected">
-                                    <a href="javascript:">
-                                        <em class="ddp-icon-dot"></em>
-                                        Editor
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- //submenu -->
-                        </div>
-                        <!-- //sub -->
-                    </div>
+                    <a href="#nodes_scroll">Nodes</a>
                 </li>
             </ul>
         </div>
-        <!-- //lnb -->
-        <h1 class="ddp-h1-logo"><a href="javascript:"><em class="ddp-icon-logo">METATRON</em><em class="ddp-icon-logo logo-last">ENGINE MONITORING</em></a></h1>
-        <div class="ddp-ui-headright">
-            <a href="javascript:" class="ddp-btn-search"></a>
-            <!-- photo -->
-            <!-- 클릭시 ddp-selected 추가 -->
-            <div class="ddp-wrap-myinfo">
-                <a href="javascript:" class="ddp-data-photo">
-                    {% load static %}
-                    <img src="{% static "images/img_photo.png" %}" />
-                </a>
-                <!-- my info -->
-                <div class="ddp-ui-sub-myinfo">
-                    <div class="ddp-wrap-data">
-                        <span class="ddp-data-name">Brittany Eutychia Sadler</span>
-                        <span class="ddp-data-mail">brittanyemailme@international.com</span>
+        <!-- //component tab -->
+    </div>
+    <!-- //top -->
+    <!-- area contents -->
+    <div class="area-contents area-monitoring">
+        <!-- top option -->
+        <div class="ui-top-option is-clear">
+            <!-- form setting -->
+            <div class="form-setting">
+                <span class="txt-label">Server name</span>
+                <div class="form-component">
+                    <!-- select box -->
+                    <!--
+                        클릭시 is-selected 추가
+                    -->
+                    <div id="top_scroll" class="component-selectbox">
+                        <span class="txt-selectbox">All</span>
+                        <!-- dropdown -->
+                        <div class="ui-dropdown">
+                            <ul class="list-selectbox">
+                                <li><a href="javascript:">test</a></li>
+                                <li><a href="javascript:">test</a></li>
+                                <li><a href="javascript:">test</a></li>
+                            </ul>
+                        </div>
+                        <!-- //dropdown -->
                     </div>
+                    <!-- //select box -->
+                </div>
+            </div>
+            <!-- //form setting -->
 
-                    <ul class="ddp-list-sub-myinfo">
-                        <li><a href="javscript:">사용자 정보 관리</a></li>
-                        <li><a href="javscript:">로그아웃</a></li>
+            <!-- form setting -->
+            <div class="form-setting">
+                <span class="txt-label">Server type</span>
+                <div class="form-component">
+                    <!-- wrap calen -->
+                    <div class="wrap-calen is-clear">
+                        <a href="javascript:" class="btn-solid is-selected">All</a>
+                        <a href="javascript:" class="btn-solid">Today</a>
+                        <a href="javascript:" class="btn-solid">Last 7 days</a>
+                        <!-- calen -->
+                        <div class="component-calen is-clear">
+                            <div class="box-calen">
+                                <input type="text" class="type-input" value="2017-30-30 12:00" >
+
+                            </div>
+                            <span class="ddp-bar">~</span>
+                            <div class="box-calen">
+                                <input type="text" class="type-input ddp-data-calen " value="2017-30-30 12:00">
+                            </div>
+                        </div>
+                        <!-- //calen -->
+                        <a href="javascript:" class="btn-solid">적용</a>
+                    </div>
+                    <!-- //wrap calen -->
+                </div>
+            </div>
+            <!-- //form setting -->
+        </div>
+        <!-- //top option -->
+        <!-- 메모리 -->
+        <div id="overview_wrap" class="wrap-memory is-clear">
+
+        </div>
+        <!-- //메모리 -->
+
+        <!-- server map -->
+        <div class="component-view type-service">
+            <div class="txt-title">
+                Service Map (109)
+
+                <a href="javascript:" class="icon-setting"></a>
+
+            </div>
+            <div class="view-contents">
+                <div class="txt-map">All Server Map</div>
+                <!-- server -->
+                <div class="wrap-server-map is-clear">
+                    <ul class="list-server-map">
+                        <li>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                            <span class="box-map is-selected"></span>
+                        </li>
+                        <li>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                        </li>
+                        <li>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                        </li>
+
+                    </ul>
+                    <ul class="list-server-map">
+                        <li>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                        </li>
+                        <li>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                        </li>
+                        <li>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                        </li>
+
+                    </ul>
+                    <ul class="list-server-map">
+                        <li>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                            <span class="box-map"></span>
+                        </li>
                     </ul>
                 </div>
-                <!-- //my info -->
+                <!-- //server -->
+
+
             </div>
-            <!-- //photo -->
+
 
         </div>
+        <!-- //server map -->
 
-    </div>
-    <!-- //header -->
+        <!-- wrap server box -->
+        <div class="wrap-server-list">
+            <!-- component option -->
+            <div class="component-top-option is-clear">
+                <div class="ui-fright">
 
+                    <a href="javascript:" class="btn-solid type-s">More ></a>
 
-    <!-- contents -->
-    <div class="ddp-layout-contents">
-        <em class="ddp-bg-back"></em>
-        <div class="ddp-ui-contents-in">
-            <!-- top -->
-            <div class="ddp-ui-contents-top">
-                <div class="ddp-ui-title">
-                    Cluster
+                    <!-- tab button -->
+                    <div class="component-tab-button">
+                        <ul class="list-tab-button">
+                            <li class="is-selected"><a href="javascript:"><em class="icon-grid"></em></a></li>
+                            <li><a href="javascript:"><em class="icon-list"></em></a></li>
+
+                        </ul>
+                    </div>
+                    <!-- //tab button -->
                 </div>
-
-                <!-- tab -->
-                <ul id="top" class="ddp-list-top-tab">
-                    <li class="ddp-selected">
-                        <a href="#overview">Overview</a>
-                    </li>
-                    <li>
-                        <a href="#nodes">Nodes</a>
-                    </li>
-                </ul>
-                <!-- //tab -->
-
             </div>
-            <!-- //top -->
+            <!-- //component option -->
+            <div id="nodes_scroll" class="component-tab-contents">
+                <div class="ui-tab-contents">
+                    <div class="view-server-grid is-clear">
+                        <!-- server box -->
+                        <div class="server-box">
+                            <!-- component box -->
+                            <div class="component-box">
+                                <div class="type-label">Server 1</div>
+                                <!-- detail -->
+                                <div class="data-det">
+                                    <ul class="list-det">
+                                        <li>Cluster name : XXXXXXXXXXX</li>
+                                        <li>Host : XXXXXXXXXXXX</li>
+                                    </ul>
+                                </div>
+                                <!-- //detail -->
+                                <!-- server -->
+                                <div class="ui-server">
+                                    <div class="box-server type-coordinator">Coordinator</div>
+                                    <div class="box-server type-broker">Broker</div>
+                                    <div class="box-server type-overload">Overload
+                                        <div class="wrap-error">
+                                            <em class="icon-error"></em>
+                                            <!-- popup -->
+                                            <div class="box-popup type-error">
+                                                <span class="txt-title">Error</span>
+                                                <div class="txt-error-det">몇번 포트에 있는 Broker가 언제부터 안됐음
+                                                    지금 몇분지속되고 있음</div>
+                                            </div>
+                                            <!-- //popup -->
+                                        </div>
+                                    </div>
+                                    <div class="box-server type-historical">Historical
+                                        <!-- popup -->
+                                        <div class="box-popup">
+                                            <span class="txt-title">Middle Manager #Server5</span>
+                                            <div class="txt-error-det">
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                            </div>
+                                        </div>
+                                        <!-- //popup -->
 
-            <div class="ddp-ui-contents-list ddp-log-statistics">
-
-                <div class="ddp-clear">
-                    <div class="ddp-col-12">
-                        <div class="ddp-data-title">
-                            Summary
-{#                          <a href="javascript:" class="ddp-more">more</a>#}
+                                    </div>
+                                    <div class="box-server type-middlemanger">Middle Manger</div>
+                                </div>
+                                <!-- //server -->
+                            </div>
+                            <!-- //component box -->
                         </div>
-
-                        <table class="ddp-table-form ddp-table-type3 ddp-cursor-none">
-                            <colgroup>
-                                <col width="200px">
-                                <col width="200px">
-                                <col width="200px">
-                                <col width="*">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Server
-                                    </th>
-                                    <th>
-                                        Node
-                                    </th>
-                                    <th>
-                                        Status
-                                    </th>
-                                    <th>
-                                        ETC.
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="ddp-hover-tooltip">
-                                        <span class="ddp-txt-long">localhost
-                                        </span>
-                                        <div class="ddp-ui-tooltip-info ddp-down">
-                                            <em class="ddp-icon-view-top"></em>
-                                            HOST : localhost <br/>
-                                            PORT : 8082
+                        <!-- //server box -->
+                        <!-- server box -->
+                        <div class="server-box">
+                            <!-- component box -->
+                            <div class="component-box">
+                                <div class="type-label">Server 1</div>
+                                <!-- detail -->
+                                <div class="data-det">
+                                    <ul class="list-det">
+                                        <li>Cluster name : XXXXXXXXXXX</li>
+                                        <li>Host : XXXXXXXXXXXX</li>
+                                    </ul>
+                                </div>
+                                <!-- //detail -->
+                                <!-- server -->
+                                <div class="ui-server">
+                                    <div class="box-server type-coordinator">Coordinator</div>
+                                    <div class="box-server type-broker">Broker</div>
+                                </div>
+                                <!-- //server -->
+                            </div>
+                            <!-- //component box -->
+                        </div>
+                        <!-- //server box -->
+                        <!-- server box -->
+                        <div class="server-box">
+                            <!-- component box -->
+                            <div class="component-box">
+                                <div class="type-label">Label</div>
+                                <!-- detail -->
+                                <div class="data-det">
+                                    <ul class="list-det">
+                                        <li>Cluster name : XXXXXXXXXXX</li>
+                                        <li>Host : XXXXXXXXXXXX</li>
+                                    </ul>
+                                </div>
+                                <!-- //detail -->
+                                <!-- server -->
+                                <div class="ui-server">
+                                    <div class="box-server type-broker">Broker</div>
+                                    <div class="box-server type-overload">Overload </div>
+                                    <div class="box-server type-historical">Historical
+                                        <!-- popup -->
+                                        <div class="box-popup">
+                                            <span class="txt-title">Middle Manager #Server5</span>
+                                            <div class="txt-error-det">
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                            </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        Broker : 8082
-                                    </td>
-                                    <td>
-                                        <span class="ddp-data-state ddp-success">SUCCESS</span>
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="ddp-hover-tooltip">
-                                        <span class="ddp-txt-long ">localhost
-                                        </span>
-                                        <div class="ddp-ui-tooltip-info ddp-down">
-                                            <em class="ddp-icon-view-top"></em>
-                                            HOST : localhost <br/>
-                                            PORT : 8081
+                                        <!-- //popup -->
+                                    </div>
+                                    <div class="box-server type-middlemanger">Middle Manger</div>
+                                </div>
+                                <!-- //server -->
+                            </div>
+                            <!-- //component box -->
+                        </div>
+                        <!-- //server box -->
+                        <!-- server box -->
+                        <div class="server-box">
+                            <!-- component box -->
+                            <div class="component-box">
+                                <div class="type-label">Label</div>
+                                <!-- detail -->
+                                <div class="data-det">
+                                    <ul class="list-det">
+                                        <li>Cluster name : XXXXXXXXXXX</li>
+                                        <li>Host : XXXXXXXXXXXX</li>
+                                    </ul>
+                                </div>
+                                <!-- //detail -->
+                                <!-- server -->
+                                <div class="ui-server">
+                                    <div class="box-server type-historical">Historical
+                                        <!-- popup -->
+                                        <div class="box-popup">
+                                            <span class="txt-title">Middle Manager #Server5</span>
+                                            <div class="txt-error-det">
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                            </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        Coordinator : 8081
-                                    </td>
-                                    <td>
-                                        <span class="ddp-data-state ddp-success">SUCCESS</span>
-                                    </td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="ddp-hover-tooltip">
-                                        <span class="ddp-txt-long ">localhost
-                                        </span>
-                                        <div class="ddp-ui-tooltip-info ddp-down">
-                                            <em class="ddp-icon-view-top"></em>
-                                            HOST : localhost <br/>
-                                            PORT : 8083
+                                        <!-- //popup -->
+                                    </div>
+                                    <div class="box-server type-middlemanger">Middle Manger</div>
+                                </div>
+                                <!-- //server -->
+                            </div>
+                            <!-- //component box -->
+                        </div>
+                        <!-- //server box -->
+                        <!-- server box -->
+                        <div class="server-box">
+                            <!-- component box -->
+                            <div class="component-box">
+                                <div class="type-label">Label</div>
+                                <!-- detail -->
+                                <div class="data-det">
+                                    <ul class="list-det">
+                                        <li>Cluster name : XXXXXXXXXXX</li>
+                                        <li>Host : XXXXXXXXXXXX</li>
+                                    </ul>
+                                </div>
+                                <!-- //detail -->
+                                <!-- server -->
+                                <div class="ui-server">
+                                    <div class="box-server type-coordinator">Coordinator</div>
+                                    <div class="box-server type-broker">Broker</div>
+                                    <div class="box-server type-overload">Overload
+                                        <div class="wrap-error">
+                                            <em class="icon-error"></em>
+                                            <!-- popup -->
+                                            <div class="box-popup type-error">
+                                                <span class="txt-title">Error</span>
+                                                <div class="txt-error-det">몇번 포트에 있는 Broker가 언제부터 안됐음
+                                                    지금 몇분지속되고 있음</div>
+                                            </div>
+                                            <!-- //popup -->
                                         </div>
-                                    </td>
-                                    <td>
-                                        Historical : 8083
-                                    </td>
-                                    <td>
-                                        <span class="ddp-data-state ddp-success">SUCCESS</span>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="ddp-hover-tooltip">
-                                        <span className="ddp-txt-long ">localhost
-                                        </span>
-                                        <div className="ddp-ui-tooltip-info ddp-down">
-                                            <em className="ddp-icon-view-top"></em>
-                                            HOST : localhost <br/>
-                                            PORT : 8090
+                                    </div>
+                                    <div class="box-server type-historical">Historical
+                                        <!-- popup -->
+                                        <div class="box-popup">
+                                            <span class="txt-title">Middle Manager #Server5</span>
+                                            <div class="txt-error-det">
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                                Middle manager  정보정보정보정보정보
+                                            </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        Overlord : 8090
-                                    </td>
-                                    <td>
-                                        <span className="ddp-data-state ddp-success">SUCCESS</span>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="ddp-hover-tooltip">
-                                        <span className="ddp-txt-long ">localhost
-                                        </span>
-                                        <div className="ddp-ui-tooltip-info ddp-down">
-                                            <em className="ddp-icon-view-top"></em>
-                                            HOST : localhost <br/>
-                                            PORT : 8091
-                                        </div>
-                                    </td>
-                                    <td>
-                                        MiddleManager : 8091
-                                    </td>
-                                    <td>
-                                        <span className="ddp-data-state ddp-success">SUCCESS</span>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="ddp-hover-tooltip">
-                                        <span className="ddp-txt-long ">localhost
-                                        </span>
-                                        <div className="ddp-ui-tooltip-info ddp-down">
-                                            <em className="ddp-icon-view-top"></em>
-                                            HOST : localhost <br/>
-                                            PORT : 8100
-                                        </div>
-                                    </td>
-                                    <td>
-                                        MiddleManager : 8100
-                                    </td>
-                                    <td>
-                                        <span className="ddp-data-state ddp-success">SUCCESS</span>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="ddp-hover-tooltip">
-                                        <span className="ddp-txt-long ">localhost
-                                        </span>
-                                        <div className="ddp-ui-tooltip-info ddp-down">
-                                            <em className="ddp-icon-view-top"></em>
-                                            HOST : localhost <br/>
-                                            PORT : 8101
-                                        </div>
-                                    </td>
-                                    <td>
-                                        MiddleManager : 8101
-                                    </td>
-                                    <td>
-                                        <span className="ddp-data-state ddp-success">SUCCESS</span>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        <!-- //popup -->
+                                    </div>
+                                    <div class="box-server type-middlemanger">Middle Manger</div>
+                                </div>
+                                <!-- //server -->
+                            </div>
+                            <!-- //component box -->
+                        </div>
+                        <!-- //server box -->
                     </div>
                 </div>
-                <!-- overview_KPI charts-->
-                <div id="overview">
-                    <div id="overview_KPIs"class="ddp-clear"></div>
+
+                <div class="component-top-option is-clear">
+                <div class="ui-fright">
+                    <a href="#top_scroll" class="btn-solid type-s">Top</a>
                 </div>
-                <!-- //overview_KPI charts -->
-
-                <div align="right" class="ddp-clear">
-                    <button class="ddp-ui-edit-button"><a href="#top">Top</a></button>
                 </div>
+                <div class="ui-tab-contents" style="">
+                    <div class="view-server-list is-clear">
+                       <table class="component-table">
+                           <colgroup>
+                               <col width="23%">
+                               <col width="245px">
+                               <col width="220px">
+                               <col width="208px">
+                               <col width="220px">
+                           </colgroup>
+                           <thead>
+                           <tr>
+                               <th>Server Name</th>
+                               <th>Node Name</th>
+                               <th>Status</th>
+                               <th>Port</th>
+                               <th>Memory (GB, %)</th>
+                           </tr>
+                           </thead>
+                           <tbody>
+                           <tr>
+                               <td rowspan="5" class="type-line"><strong>Server1</strong></td>
+                               <td>
+                                    <span class="txt-server type-coordinator">Coordinator</span>
+                               </td>
+                               <td>
+                                   <span class="tag-status type-ok">Ok</span>
+                               </td>
+                               <td>
+                                   8080
+                               </td>
+                               <td>
+                                  21(10%)
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <span class="txt-server type-broker">Broker</span>
+                               </td>
+                               <td>
+                                   <span class="tag-status type-fail">Fail</span>
+                                   <span class="txt-fail">(20분간 지속되고 있음)</span>
+                               </td>
+                               <td>
+                                   8080
+                               </td>
+                               <td>
+                                   21(10%)
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <span class="txt-server type-overload">Overload</span>
+                               </td>
+                               <td>
+                                   <span class="tag-status type-ok">Ok</span>
+                               </td>
+                               <td>
+                                   8080
+                               </td>
+                               <td>
+                                   21(10%)
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <span class="txt-server type-historical">Historical</span>
+                               </td>
+                               <td>
+                                   <span class="tag-status type-ok">Ok</span>
+                               </td>
+                               <td>
+                                   8080
+                               </td>
+                               <td>
+                                   21(10%)
+                               </td>
+                           </tr>
+                           <tr class="type-line">
+                               <td>
+                                   <span class="txt-server type-middlemanger">Middle Manager</span>
+                               </td>
+                               <td>
+                                   <span class="tag-status type-ok">Ok</span>
+                               </td>
+                               <td>
+                                   8080
+                               </td>
+                               <td>
+                                   21(10%)
+                               </td>
+                           </tr>
+                           <tr>
+                               <td rowspan="5" class="type-line"><strong>Server1</strong></td>
+                               <td>
+                                   <span class="txt-server type-coordinator">Coordinator</span>
+                               </td>
+                               <td>
+                                   <span class="tag-status type-ok">Ok</span>
+                               </td>
+                               <td>
+                                   8080
+                               </td>
+                               <td>
+                                   21(10%)
+                               </td>
+                           </tr>
+                           <tr class="type-line">
+                               <td>
+                                   <span class="txt-server type-broker">Broker</span>
+                               </td>
+                               <td>
+                                   <span class="tag-status type-ok">Ok</span>
+                               </td>
+                               <td>
+                                   8080
+                               </td>
+                               <td>
+                                   21(10%)
+                               </td>
+                           </tr>
 
+                           </tbody>
+                       </table>
 
-                <!--nodes tab -->
-                <div id="nodes">
-                    <div id="node_select" class="ddp-clear"></div>
-
-                    <div id="node_details" class="ddp-clear"></div>
-
-                    <div align="right" class="ddp-clear">
-                        <button class="ddp-ui-edit-button"><a href="#top">Top</a></button>
                     </div>
-
-
                 </div>
-                <!--//nodes tab -->
-
-{#                <div id="nodes_coordinator" class="ddp-clear"></div>#}
-{#                <div id="nodes_broker" class="ddp-clear"></div>#}
-{#                <div id="nodes_historical" class="ddp-clear"></div>#}
-{#                <div id="nodes_overlord" class="ddp-clear"></div>#}
-{#                <div id="nodes_middleManager" class="ddp-clear"></div>#}
-                <!--//nodes tab -->
-
             </div>
-
         </div>
+        <!-- //wrap server box -->
 
     </div>
+    <!-- //area contents -->
 
-    <!-- //contents -->
-    {% load static %}
+</div>
+<!-- //contents -->
     <script src="{% static "frontend/main.js" %}"></script>
     <script src="{% static "js/scroll.js"%}"></script>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>

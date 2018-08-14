@@ -1,12 +1,13 @@
-import React,{Component} from "react";
-import ReactEcharts from './App';
+import React, {Component} from "react";
+
+import OverviewKPIBox from './OverviewKPIBox';
+import OverviewCurrentMem from './OverviewCurrentMem';
+import OverviewCurrentCPU from './OverviewCurrentCPU';
+
 import PropTypes from "prop-types";
 import 'echarts/theme/macarons.js';
 
-import * as U from './utils'
-import key from "weak-key";
-
-export default class Overview extends Component{
+export default class Overview extends Component {
 
     constructor() {
         super();
@@ -19,8 +20,8 @@ export default class Overview extends Component{
         };
 
         this.state = {
-            modalIsOpen : false,
-            metricList : []
+            modalIsOpen: false,
+            metricList: []
         };
 
 
@@ -29,31 +30,31 @@ export default class Overview extends Component{
     }
 
     //metric 안에 percent 데이터가 있는지 확인.
-    hasPercent ({data}) {
+    hasPercent({data}) {
         // console.log("in hasPercent")
         // console.log(typeof data)
         // console.log(data)
 
         let hasP = false;
-        if(typeof data == 'undefined'){
-            hasP=false
-        }else if(data["percent"].length==0){
-            hasP=false;
-        }else{
-            hasP=true
+        if (typeof data == 'undefined') {
+            hasP = false
+        } else if (data["percent"].length == 0) {
+            hasP = false;
+        } else {
+            hasP = true
         }
         return hasP
     }
 
     //차트 옵션 지정.
-    getOption ({data},{metric}) {
+    getOption({data}, {metric}) {
 
         // console.log("in getOption : ");
         // console.log(data["percent"]);
         // console.log(data["avg"]);
         // console.log(hasP);
-            return {
-            tooltip : {
+        return {
+            tooltip: {
                 trigger: 'axis',
                 axisPointer: {
                     type: 'shadow'
@@ -61,38 +62,38 @@ export default class Overview extends Component{
             },
             title: {
                 textStyle: {
-                  color: 'white',
-                  fontSize: 13,
-                  fontFamily: 'SpoqaHanSans',
-                  fontWeight: 'bold'
+                    color: 'white',
+                    fontSize: 13,
+                    fontFamily: 'SpoqaHanSans',
+                    fontWeight: 'bold'
                 },
                 left: '40%',
-                text: data["kpi"]["diff_percent"]+"%"+"("+data["kpi"]["diff_value"]+")"
+                text: data["kpi"]["diff_percent"] + "%" + "(" + data["kpi"]["diff_value"] + ")"
             },
-            calculable : true,
+            calculable: true,
             xAxis: {
                 type: 'category',
-                axisLine:{
-                    lineStyle:{
-                        color:"white"
+                axisLine: {
+                    lineStyle: {
+                        color: "white"
                     }
                 },
                 data: data["timestamp"],
                 axisLabel: {
                     fontFamily: 'SpoqaHanSans',
-                    formatter: function(value){
-                       let date = new Date(value);
-                       let texts=[date.getUTCHours(), date.getUTCMinutes()];
-                       return texts.join(':');
+                    formatter: function (value) {
+                        let date = new Date(value);
+                        let texts = [date.getUTCHours(), date.getUTCMinutes()];
+                        return texts.join(':');
                     }
                 },
-                boundaryGap:false
+                boundaryGap: false
             },
             yAxis: {
                 type: 'value',
-                axisLine:{
-                    lineStyle:{
-                        color:"white"
+                axisLine: {
+                    lineStyle: {
+                        color: "white"
                     }
                 },
                 axisTick: {
@@ -107,67 +108,79 @@ export default class Overview extends Component{
             },
             series: [{
                 name: metric,
-                data: this.hasPercent(this.props.data[metric])?data["percent"]:data["avg"],
+                data: this.hasPercent(this.props.data[metric]) ? data["percent"] : data["avg"],
                 type: 'line',
                 markLine: {
-                       data: [{type:'average', name:'avg'
-                       }],
-                       lineStyle: {
-                           color: '#ffe680'
-                       },
-                       symbolSize: 8,
-                       label: {
-                           position: 'middle'
-                       }
+                    data: [{
+                        type: 'average', name: 'avg'
+                    }],
+                    lineStyle: {
+                        color: '#ffe680'
+                    },
+                    symbolSize: 8,
+                    label: {
+                        position: 'middle'
+                    }
                 },
             }]
         };
     }
 
-    render(){
-        return(
-            <div>
-                <div className="ddp-clear">
-                    <div className="ddp-wrap-edit">
-                        <div className="ddp-ui-edit-option">
-                            <a href="#" className="ddp-btn-toggle ddp-data-range">{this.props.serverNodeHost}</a>
-                        </div>
+    setServerNodeHost(serverNodeHost){
+        serverNodeHost=JSON.stringify(serverNodeHost);
+        console.log("in setServerNodeHost")
+        console.log(serverNodeHost)
+        switch (serverNodeHost){
+
+            case serverNodeHost.includes("coordinator"):
+                return(
+                    <div className="box-server type-coordinator">{serverNodeHost}</div>
+                )
+            case serverNodeHost.includes("broker"):
+                return(
+                    <div className="box-server broker">{serverNodeHost}</div>
+                )
+            case serverNodeHost.includes("historical"):
+                return(
+                    <div className="box-server historical">{serverNodeHost}</div>
+                )
+            case serverNodeHost.includes("overlord"):
+                return(
+                    <div className="box-server overlord">{serverNodeHost}</div>
+                )
+            case serverNodeHost.includes("middleManager"):
+                return(
+                    <div className="box-server middlemanger">{serverNodeHost}</div>
+                )
+        }
+
+    }
+
+    render() {
+        return (
+            console.log(this.props.data),
+
+                <div className="wrap-memory is-clear">
+
+                    <div className="ui-server">
+                        {this.setServerNodeHost(this.props.serverNodeHost)}
                     </div>
 
-                    <div>
-                        <div className="ddp-clear">
-                        </div>
+                    <div className="col-5">
+                        <OverviewCurrentMem data={this.props.data} metric={"jvm/mem/used"}/>
+                        <OverviewCurrentCPU data={this.props.data} metric={"jvm/pool/used"}/>
+                    </div>
+                    <div className="col-7">
+                        {Object.keys(this.props.data).map(metric => (
+                            console.log(metric),
+                                <OverviewKPIBox data={this.props.data} metric={metric}/>
+                        ))}
                     </div>
 
-                    {/*this.proos.data = {'jvm/mem/used':{'avg':[],'percent':[],min:20,max:90,kpi:{}}, etc.}*/}
-                    {Object.keys(this.props.data).map(metric=>
-                    (<div className="ddp-col-2">
-                        {/*{console.log("after mapping metric of each host")}*/}
-                        {/*{console.log(metric)}*/}
-                       <div className="ddp-data-title">
-                           {U.changeMetric({metric})}
-                       </div>
-
-                       <div className="ddp-box-chart">
-                           <ReactEcharts
-                               option={this.getOption(
-                                   {data : this.props.data[metric]},
-                                   {metric : metric},
-                                   // {data : data['jvm/mem/used']},
-                                   // {metric : 'jvm/mem/used'},
-                                   // {hasP : hasPercent({data : data['jvm/mem/used']})}
-                               )}
-                               style={{height: '100%', width: '100%'}}
-                               className={"ddp-box-chart"}
-                               theme={'macarons'}
-                           />
-                       </div>
-                    </div>)
-                    )}
                 </div>
 
-            </div>
-        )}
+        )
+    }
 } //end of class
 
 
