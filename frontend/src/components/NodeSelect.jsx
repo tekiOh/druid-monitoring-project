@@ -7,7 +7,7 @@ import Select from "react-select"
 import 'react-datetime/css/react-datetime.css'
 
 import PropTypes from "prop-types";
-import 'echarts/theme/macarons.js';
+import '../../../macarons.js';
 import * as echarts from 'echarts';
 
 import * as U from './utils'

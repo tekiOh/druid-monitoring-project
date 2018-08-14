@@ -128,9 +128,9 @@ export default class Nodes extends Component{
                     {/*this.props.data ={druid/dev/broker:localhost:8082:{"jvm":{"jvm/mem/used":{avg:[],percent:[],kpi:{},min:100,max:100},"jvm/pool/used":{~~}}},"query/~":{} ,"blahblah":{~}, etc.}*/}
 
 
-                    {console.log("in chart")},
-                    {console.log(this.props.data)},
-                    {console.log(this.props.serverNodeHost)},
+                    {/*{console.log("in chart")},*/}
+                    {/*{console.log(this.props.data)},*/}
+                    {/*{console.log(this.props.serverNodeHost)},*/}
                     {Object.keys(this.props.data[this.props.serverNodeHost]).map(metric=>
                         (
                          <div className="ddp-clear">
