@@ -74,12 +74,12 @@ export default class NodesEachChart extends Component {
             data: timestamp,
             axisLabel: {
                 fontFamily: 'SpoqaHanSans',
-                formatter: function (value) {
-                    let date = new Date(value);
-                    let text1 = [date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()];
-                    let text2 = [date.getUTCHours(), date.getUTCMinutes()];
-                    return text1.join('/') + ' ' + text2.join(':');
-                },
+                // formatter: function (value) {
+                //     let date = new Date(value);
+                //     let text1 = [date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()];
+                //     let text2 = [date.getUTCHours(), date.getUTCMinutes()];
+                //     return text1.join('/') + ' ' + text2.join(':');
+                // },
                 show: axisLabelFlag,
             },
             axisLine: {
