@@ -9,15 +9,15 @@
 
 .ddp-layout-header h1.ddp-h1-logo em.ddp-icon-logo {background:none;color:#fff;font-size:17px;line-height:14px;width:100px;}
 .ddp-layout-header h1.ddp-h1-logo em.ddp-icon-logo.logo-last {color:#6c7ee7;width:190px;}
-.ddp-log-statistics .ddp-data-title {color:#98a6ae;font-size:13px;}
-.polaris-black .ddp-log-statistics .ddp-box-chart{border:1px solid #262626;background:#2e363f;}
+.ddp-log-statistics .ddp-data-title {color:#ffffff;font-size:13px;}
+.polaris-black .ddp-log-statistics .ddp-box-chart{border:1px solid #c6d7f2;background:#2e363f;}
 .polaris-black .ddp-log-statistics .ddp-box-wrap{border-radius:3px;height:200px;background:#303a45;}
 .ddp-layout-contents {padding-top:55px;}
 .ddp-type-selectbox span.ddp-txt-selectbox {color: #90969f;}
 .ddp-wrap-edit .ddp-ui-edit-option a.ddp-btn-toggle {background-color:#303a45;color:#606979;}
 .ddp-wrap-edit .ddp-ui-edit-option a.ddp-btn-toggle.ddp-selected{background-color:#5c6bc1;color:#b7c3db;}
 .ddp-ui-calen .ddp-box-calen{border-color:#303a45;}
-.ddp-wrap-edit .ddp-ui-edit-option a.ddp-btn-toggle.ddp-data-range {padding-left: 15px;padding-right: 15px;color: #90969f;}
+.ddp-wrap-edit .ddp-ui-edit-option a.ddp-btn-toggle.ddp-data-range {padding-left: 15px;padding-right: 15px;color: #ffffff;}
 .ddp-wrap-edit .ddp-ui-edit-option a.ddp-btn-toggle.ddp-node-title {padding-left: 15px;padding-right: 15px;font-size:10px;color: #90969f;}
 .ddp-wrap-edit .ddp-ui-edit-option .ddp-type-selectbox {border: 1px solid #303a45;}
 
