@@ -26,15 +26,13 @@ export default class OverviewEachChart extends Component{
     }
 
     //metric 안에 percent 데이터가 있는지 확인.
-    hasPercent ({data}) {
+    hasPercent (data) {
         // console.log("in hasPercent")
         // console.log(typeof data)
         // console.log(data)
 
-        let hasP = false;
-        if(typeof data == 'undefined'){
-            hasP=false
-        }else if(data["percent"].length==0){
+        let hasP = true;
+        if(data["percent"].length==0){
             hasP=false;
         }else{
             hasP=true

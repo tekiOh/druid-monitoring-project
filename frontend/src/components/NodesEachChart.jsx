@@ -32,19 +32,17 @@ export default class NodesEachChart extends Component {
         this.makeGridData=this.makeGridData.bind(this)
     }
 
-    //metric 안에 percent 데이터가 있는지 확인
-    hasPercent(data) {
+    //metric 안에 percent 데이터가 있는지 확인.
+    hasPercent (data) {
         // console.log("in hasPercent")
         // console.log(typeof data)
         // console.log(data)
 
-        let hasP = false;
-        if (typeof data == 'undefined') {
-            hasP = false
-        } else if (data["percent"].length == 0) {
-            hasP = false;
-        } else {
-            hasP = true
+        let hasP = true;
+        if(data["percent"].length==0){
+            hasP=false;
+        }else{
+            hasP=true
         }
         return hasP
     }
