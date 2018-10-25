@@ -1,0 +1,68 @@
+// [ Scss 작성 가이드 ]
+//
+// 1. 마크업 레벨(Depth) Class 가이드
+// {project code}-wrap > layout-xxx > page-xxx(컨텐츠 영역,화면 고유) > section-xxx > xxx-area > xxx-block
+//
+// 2. 클래스명 가이드
+// table-xxx, list-xxx, item-xxx, btn(button)-xxx, link(a tag)-xxx
+// txt(text)-xxx, num(number)-xxx, data-xxx, desc(description)-xxx
+// input(textbox)-xxx, radio-xxx, checkbox-xxx, textarea-xxx(textarea), select(selectbox)-xxx
+//
+// 3. 동적 클래스
+// is-activated, is-selected, is-disabled, is-fold(unfold), is-show(hide), is-xxx
+//
+// 4. 유형 클래스 : type-xxx
+//
+// 5. 컴포넌트 클래스 정의 : component-xxx, ex:component-datepicker
+//
+// 6. 화면 별 고유 클래스 정의 : page-xxx, ex:page-login
+//
+// 7. 작성 가이드
+// overflow,visibility,display,position(left,right,top,bottom),z-index,width,height,margin,padding,border,background,box-sizing, ~ 자유배치
+// @include, @extend는 마지막에 삽입
+//
+// 8. z-index 가이드
+// 기본 10 증가 폭 5단위
+// 팝업 300 증가폭 10단위
+// 로딩 1000
+
+/***************************************************************************************
+   기본설정, 공통 SCSS
+***************************************************************************************/
+@import "import/common/sprite"; //Sprite Image
+@import "import/common/common"; //공통(mixin, extend(placeholder))
+@import "import/common/base"; //기본설정
+
+/***************************************************************************************
+   레이아웃 SCSS
+***************************************************************************************/
+@import "import/layout";
+
+/***************************************************************************************
+   공통 Component UI SCSS
+***************************************************************************************/
+@import "import/component/toaster"; //Toaster
+@import "import/component/tooltip"; //Tooltip
+@import "import/component/loading"; //Loading
+@import "import/component/selectbox"; //Selectbox
+@import "import/component/datepicker"; //Datepicker
+
+/***************************************************************************************
+   화면 내 공통 UI SCSS
+***************************************************************************************/
+@import "import/component/filter"; //홈,대시보드 필터
+@import "import/component/list"; //홈,대시보드,Mirror 목록
+@import "import/component/button"; //회원가입, 아이디/비밀번호 찾기, 회원 정보, 회원 탈퇴
+
+/***************************************************************************************
+   화면 SCSS
+***************************************************************************************/
+@import "import/page/login"; //로그인
+
+@import "import/page/join"; //회원가입, 회원가입 결과, 아이디/비밀번호 찾기
+@import "import/page/member"; //회원정보 팝업, 회원탈퇴 팝업
+
+@import "import/page/home"; //홈
+@import "import/page/dashboard"; //대시보드
+@import "import/page/dashboard_card"; //대시보드 카드,테이블
+@import "import/page/widget"; //위젯 추가

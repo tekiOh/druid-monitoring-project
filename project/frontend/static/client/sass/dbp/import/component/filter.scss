@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+/***************************************************************************************
+   Home, Dashboard Card Filter
+***************************************************************************************/
+.home_area,
+.dashboard_area,
+.dashboard_card_area {
+  .top_option {
+    position:relative;
+    z-index:30;
+
+    &.dbp_row {
+      margin:0 0 -5px 0;
+    }
+
+    .filter_area {
+      float:left;
+
+      &:before {
+        float:left;
+        margin-right:8px;
+        margin:7px 8px 0 0;
+        content:'';
+        @include get-sprite($icon_setting);
+      }
+
+      .type_selectbox {
+        float:left;
+        margin-right:6px;
+      }
+
+      .filter_datepicker {
+          float:left;
+      }
+    }
+    .filter_area2 {
+      float:right;
+
+      .search_area {
+        float:left;
+      }
+      .type_selectbox {
+        float:left;
+      }
+      .btn_downloadall {
+        display:inline-block;
+        position:relative;
+        float:left;
+        width:28px;
+        height:28px;
+        margin-left:10px;
+        @include radius(5px);
+
+        &:before {
+          position:absolute;
+          top:50%;
+          left:50%;
+          margin:-8px 0 0 -7px;
+          content:'';
+          @include get-sprite($btn_downloadall);
+        }
+        &:hover {
+          background-color:#f2f5f8;
+        }
+      }
+      .btn_lisview {
+        display:inline-block;
+        position:relative;
+        float:left;
+        width:28px;
+        height:28px;
+        margin-left:10px;
+        @include radius(5px);
+
+        &:before {
+          position:absolute;
+          top:50%;
+          left:50%;
+          margin:-6px 0 0 -7px;
+          content:'';
+          @include get-sprite($btn_listview);
+        }
+        &:hover {
+          background-color:#f2f5f8;
+        }
+      }
+    }
+  }
+}
+
+/***************************************************************************************
+   Dashboard Filter
+***************************************************************************************/
+.dashboard_area {
+  .top_option {
+    &.dbp_row{
+      // margin:-32px -40px 0 -40px;
+      border-bottom:1px solid #e0e3e6;
+    }
+    .ui_title {
+      float:left;
+      padding:21px 0 18px 49px;
+
+      .icon_phone {
+        float:left;
+        margin-right:17px;
+        @include get-sprite($icon_phone);
+      }
+      .view_title {
+        display:block;
+        float:left;
+        padding:5px 0 0 0;
+
+        .txt_title {
+          display:block;
+          padding-bottom:5px;
+          color:#8798a8;
+          font-size:11px;
+        }
+        .txt_title2 {
+          font-size:22px;
+          color:$color;
+          font-weight:bold;
+        }
+      }
+    }
+
+    .filter_area2 {
+      padding:30px 40px 0 0;
+
+      &:before {
+        float:left;
+        margin-right:8px;
+        margin:7px 8px 0 0;
+        //content:'';
+        @include get-sprite($icon_setting);
+      }
+      .type_selectbox {
+        float:left;
+      }
+      .filter_datepicker {
+          float:left;
+      }
+      .btn_widget {
+          float:left;
+      }
+      .search_area {
+        margin-left:18px;
+      }
+      .bar {
+          display:block;
+          float:left;
+          width:1px;
+          height:10px;
+          margin:9px 7px 0;
+          background-color:#b2b2b2;
+      }
+      .btn_option {
+        display:inline-block;
+        position:relative;
+        float:left;
+        margin-left:10px;
+        width:28px;
+        height:28px;
+
+        &:before {
+          position:absolute;
+          top:50%;
+          left:50%;
+          margin:-8px 0 0 -8px;
+          content:'';
+          @include get-sprite($btn_option);
+        }
+        &:hover {
+          background-color:#f2f5f8;
+        }
+      }
+      .btn_downloadall {
+        margin-left:6px;
+      }
+    }
+  }
+}
+
+/***************************************************************************************
+   Filter Date Picker
+***************************************************************************************/
+[class*="filter_area"] {
+    .datepicker_area {
+      height:30px;
+      padding:0 11px 0 10px;
+      border:1px solid #f2f5f8;
+      background-color:#fff;
+      font-size:13px;
+      color:#333;
+      line-height:28px;
+      cursor:pointer;
+
+      @extend %box-sizing;
+      @include radius(4px);
+
+      &:before {
+          margin:0 8px 0 0;
+          content:'';
+
+          @include get-sprite($icon_calendar);
+      }
+
+      &:hover {
+          background-color:#f2f5f8;
+      }
+    }
+
+    .datepicker_compare {
+        padding:5px 0 0 10px;
+        font-size:12px;
+        color:#8a9ba4;
+
+        &:before {
+            margin:0 8px 0 0;
+            content:'';
+
+            @include get-sprite($icon_compare);
+        }
+    }
+
+  .btn_widget {
+      display:block;
+      height:30px;
+      padding:0 20px 0 13px;
+      border:1px solid #f2f5f8;
+      background-color:#fff;
+      font-size:13px;
+      color:#333;
+      line-height:28px;
+
+      @extend %box-sizing;
+      @include radius(4px);
+
+      &:before {
+          margin-right:6px;
+          content:'';
+
+          @include get-sprite($icon_plus);
+      }
+
+      &:hover {
+          background-color:#f2f5f8;
+      }
+  }
+}

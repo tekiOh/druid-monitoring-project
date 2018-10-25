@@ -1,0 +1,374 @@
+@charset "utf-8";
+
+/***************************************************************************************
+   Join, Member(회원정보 팝업) - Placeholder
+***************************************************************************************/
+%focus-set {
+    border:1px solid #e0e3e6;
+    background-color:#fff;
+}
+
+%error-set {
+    border:1px solid #eb2424;
+    background-color:#fde9e9;
+    color:#eb2424;
+}
+
+%table-alert {
+    [class^="alert_"] {
+        display:none;
+        margin:10px 0 0;
+        padding:0 0 0 7px;
+        font-size:12px;
+    }
+    .alert_confirm {
+        color:#4abccc;
+
+        &:before {
+            margin:2px 3px 0 0;
+            vertical-align:top;
+            content:'';
+
+            @include get-sprite($icon_confirm);
+        }
+    }
+    .alert_error {
+        color:#eb2424;
+
+        &:before {
+            margin:0 3px 0 0;
+            vertical-align:top;
+            content:'';
+
+            @include get-sprite($icon_error);
+        }
+    }
+}
+
+%table-desc {
+    margin:10px 0 0 14px;
+
+    > li {
+        position:relative;
+        padding-left:10px;
+        font-size:12px;
+        color:$color;
+        line-height:18px;
+    }
+    > li:before {
+        display:block;
+        position:absolute;
+        left:0;
+        top:7px;
+        width:3px;
+        height:3px;
+        background-color:#333;
+        content:'';
+
+        @include radius(50%);
+    }
+}
+
+/***************************************************************************************
+   Join
+***************************************************************************************/
+.dbp_join_wrap {
+    min-width:1000px;
+
+    .logo_area {
+        height:58px;
+        background-color:#307c95;
+
+        &:before {
+            @include get-sprite($logo_page);
+            content:'';
+        }
+    }
+
+    .join_area {
+        width:640px;
+        margin:0 auto;
+
+        > h1 {
+            margin:40px 0;
+            text-align:center;
+            font-size:22px;
+            color:$color;
+            font-weight:bold;
+        }
+
+        .info_desc {
+            padding-bottom:40px;
+            text-align:center;
+            font-size:14px;
+            color:$color;
+        }
+    }
+
+    // 하단 버튼 영역
+    .button_area {
+        padding:20px 0;
+        border-top:1px solid #e0e3e6;
+        text-align:center;
+
+        [class^="btn_"] {
+            display:inline-block;
+            min-width:120px;
+            margin:0 4px;
+            vertical-align:top;
+        }
+    }
+
+    // 컨펌,에러 문구
+    .alert {
+        @extend %table-alert;
+    }
+
+    // 안내 문구
+    .list_desc {
+        @extend %table-desc;
+    }
+}
+
+/***************************************************************************************
+   Join - 테이블
+***************************************************************************************/
+.dbp_join_wrap {
+    .table_join {
+        width:100%;
+        border-collapse:collapse;
+        table-layout:fixed;
+
+        th, td {
+            padding-bottom:20px;
+            vertical-align:top;
+            text-align:left;
+        }
+        th {
+            font-size:14px;
+            color:$color;
+            font-weight:bold;
+        }
+        .label {
+            display:inline-block;
+            padding-top:12px;
+        }
+
+        .input_join:focus,
+        .input_join.is_activated,
+        .input_textarea:focus,
+        .input_textarea.is_activated {
+            @extend %focus-set;
+        }
+        .select_box.is_activated {
+            .selected_label {
+                color:$color;
+
+                @extend %focus-set;
+            }
+        }
+
+        .is_confirm > th .label:after {
+            display:inline-block;
+            width:5px;
+            height:5px;
+            margin:4px 0 0 10px;
+            background-color:#4abccc;
+            vertical-align:top;
+            content:'';
+
+            @include radius(50%);
+        }
+        .is_confirm .alert_confirm {
+            display:block;
+        }
+        .is_confirm .form_join .input_join.is_activated {
+            border-color:#31adbe;
+        }
+        .is_error .alert_error {
+            display:block;
+        }
+        .is_error .form_join .input_join.is_activated,
+        .is_error .form_join .select_box .selected_label,
+        .is_error .form_join .input_textarea {
+            @extend %error-set;
+            @include placeholder(#eb2424);
+        }
+        .is_error .form_join .textarea .total {
+            color:#eb2424;
+        }
+        .is_error .form_join .select_box:before {
+            @include get-sprite($arrow_selectbox_fail);
+        }
+
+        .is_error .form_join .input_join.is_activated:focus,
+        .is_error .form_join .select_box.is_activated .selected_label,
+        .is_error .form_join .input_textarea.is_activated:focus {
+            color:$color;
+
+            @extend %focus-set;
+            @include placeholder(#a7a7a7);
+        }
+        .is_error .form_join .select_box.is_activated:before {
+            @include get-sprite($arrow_selectbox);
+        }
+        .is_error .form_join .input_textarea.is_activated + .total {
+            color:#a7a7a7;
+        }
+
+        &.type_find td,
+        &.type_reset td {
+            padding-bottom:40px;
+        }
+    }
+}
+
+/***************************************************************************************
+   Join - 입력 폼
+***************************************************************************************/
+.dbp_join_wrap {
+    .form_join {
+        // Input Box
+        .input_join {
+            width:292px;
+            height:40px;
+            padding:0 15px;
+            border:0 none;
+            background-color:#eee;
+            font-size:14px;
+            color:$color;
+            line-height:40px;
+            vertical-align:top;
+
+            @include placeholder(#a7a7a7);
+            @extend %box-sizing;
+        }
+        // 중복확인 버튼
+        .btn_confirm {
+            width:102px;
+            margin-left:10px;
+            vertical-align:top;
+        }
+
+        // Textarea
+        .textarea {
+            position:relative;
+            margin-top:10px;
+
+            .total {
+                display:inline-block;
+                position:absolute;
+                right:10px;
+                bottom:10px;
+                font-size:12px;
+                color:#a7a7a7;
+            }
+        }
+        .input_textarea {
+            width:100%;
+            height:120px;
+            padding:13px 15px 30px;
+            font-size:14px;
+            color:$color;
+            border:0 none;
+            background-color:#eee;
+
+            @include placeholder(#a7a7a7);
+            @extend %box-sizing;
+        }
+
+        // Select Box (Dropdown)
+        .select_box {
+            position:relative;
+            width:292px;
+            cursor:pointer;
+
+            &:before {
+                position:absolute;
+                right:15px;
+                top:50%;
+                margin-top:-4px;
+                content:'';
+
+                @include get-sprite($arrow_selectbox);
+            }
+
+            .selected_label {
+                display:block;
+                height:40px;
+                padding:0 35px 0 15px;
+                background-color:#eee;
+                font-size:14px;
+                color:#a7a7a7;
+                line-height:40px;
+
+                @extend %box-sizing;
+                @extend %ellipsis;
+            }
+            .layer_options {
+                display:none;
+                overflow-y:scroll;
+                position:absolute;
+                left:0;
+                right:0;
+                top:39px;
+                z-index:1;
+                height:160px;
+                border:1px solid #e0e3e6;
+                background-color:#fff;
+
+                &.is_show {
+                    display:block;
+                }
+            }
+            .list_options .item {
+                display:block;
+                padding:10px 15px;
+                font-size:14px;
+                color:$color;
+            }
+            .list_options .item:hover {
+                color:#4abccc;
+            }
+            .list_options .is_selected .item,
+            .list_options .is_selected .item:hover {
+                color:$color;
+                font-weight:bold;
+            }
+            .list_options .is_selected .item:after {
+                display:inline-block;
+                width:5px;
+                height:5px;
+                margin:4px 0 0 10px;
+                background-color:#4abccc;
+                vertical-align:top;
+                content:'';
+
+                @include radius(50%);
+            }
+        }
+    }
+}
+
+/***************************************************************************************
+   Join - Result
+***************************************************************************************/
+.dbp_join_wrap {
+    .result_area {
+        padding:40px 0 60px;
+
+        .title_result {
+            text-align:center;
+            font-size:22px;
+            color:$color;
+        }
+
+        .text_desc {
+            margin-top:50px;
+            text-align:center;
+            font-size:14px;
+            color:$color;
+            line-height:28px;
+        }
+    }
+}

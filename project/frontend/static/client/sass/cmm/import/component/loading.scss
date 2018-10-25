@@ -1,0 +1,42 @@
+/***************************************************************************************
+   Component : LOADING
+***************************************************************************************/
+.component-loading {
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index:1000;
+    background-color:rgba(255,255,255,0.6);
+
+    .loading {
+        display:block;
+        position:fixed;
+        left:50%;
+        top:50%;
+        width:10px;
+        height:10px;
+        margin:-5px 0 0 -5px;
+        background-color:#18bfdf;
+        animation:cmm_loading 1s infinite ease-in-out;
+
+        @extend %box-sizing;
+
+        &:first-child {
+            margin-left:-40px;
+        }
+        &:nth-child(2) {
+            margin-left:-13px;
+            animation-delay:0.15s;
+        }
+        &:nth-child(3) {
+            margin-left:13px;
+            animation-delay:0.3s;
+        }
+        &:last-child {
+            margin-left:40px;
+            animation-delay:0.45s;
+        }
+    }
+}

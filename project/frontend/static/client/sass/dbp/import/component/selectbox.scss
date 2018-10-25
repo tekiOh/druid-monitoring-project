@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+/***************************************************************************************
+   selectbox
+***************************************************************************************/
+.type_selectbox {
+    position:relative;
+    padding:0 19px 0 0;
+    min-width:135px;
+    border:1px solid #f2f5f8;
+    background-color:#fff;
+    cursor: pointer;
+    @include radius(4px);
+
+    .option {
+        display:inline-block;
+        padding:0 5px 0 8px;
+        line-height:28px;
+        color:#333;
+        font-size:13px;
+    }
+    .icon_selectbox {
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        width:19px;
+
+        &:before {
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin:-2px 0 0 -4px;
+            content:'';
+            @include get-sprite($icon_selectbox);
+        }
+    }
+
+    .list_selectbox {
+        position:absolute;
+        display:none;
+        top:100%;
+        left:0;
+        width:100%;
+        padding:4px 0;
+        margin-top:3px;
+        background-color: #fff;
+
+        @include radius(4px);
+        @include box-shadow(0 2px 5px rgba(29,37,41,.4));
+
+        > li {
+            a {
+                position:relative;
+                display:block;
+                padding:4px 25px 4px 11px;
+                color:#333;
+                font-size:12px;
+
+                &:hover{
+                    color:#4abccc;
+                }
+            }
+            &.is_selected {
+                a {
+                    font-weight:bold;
+
+                    &:after {
+                        display:inline-block;
+                        position:absolute;
+                        top:50%;
+                        right:11px;
+                        margin-top:-3px;
+                        width:5px;
+                        height:5px;
+                        background-color:#4abccc;
+                        content:'';
+                        @include radius(50%);
+                    }
+                }
+            }
+        }
+        .type_button {
+            margin-bottom:6px;
+            padding:0 8px 0;
+
+            > a {
+                padding:6px 0 10px;
+                border-bottom:1px solid #e0e3e6;
+                color:#4abccc;
+            }
+
+            &:last-child {
+                margin:6px 0 0 0;
+
+                > a {
+                    padding:10px 0 6px;
+                    border-top:1px solid #e0e3e6;
+                    border-bottom:0 none;
+                    color:#333;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        background-color:#f2f5f8;
+    }
+
+    &.is_selected {
+        background-color:#31adbe;
+        z-index:1;
+
+        .list_selectbox {
+            display:block;
+        }
+        .option {
+            color:#fff;
+        }
+        .icon_selectbox {
+            background-color:#2c9bab;
+            @include radius(0 4px 4px 0);
+
+            &:before {
+                @include get-sprite($icon_selectbox2);
+            }
+        }
+    }
+}

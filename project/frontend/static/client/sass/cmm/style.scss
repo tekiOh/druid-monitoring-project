@@ -1,0 +1,57 @@
+// [ Scss 작성 가이드 ]
+//
+// 1. 마크업 레벨(Depth) Class 가이드
+// {project code}-wrap > layout-xxx > page-xxx(컨텐츠 영역,화면 고유) > section-xxx > xxx-area > xxx-block
+//
+// 2. 클래스명 가이드
+// table-xxx, list-xxx, item-xxx, btn(button)-xxx, link(a tag)-xxx
+// txt(text)-xxx, num(number)-xxx, data-xxx, desc(description)-xxx
+// input(text)-xxx, radio-xxx, checkbox-xxx, textarea-xxx(textarea), select(selectbox)-xxx
+//
+// 3. 동적 클래스
+// is-activated, is-selected, is-disabled, is-fold(unfold), is-show(hide), is-xxx
+//
+// 4. 유형 클래스 : type-xxx
+//
+// 5. 컴포넌트 클래스 정의 : component-xxx, ex:component-datepicker
+//
+// 6. 화면 별 고유 클래스 정의 : page-xxx, ex:page-login
+//
+// 7. 작성 가이드
+// overflow,visibility,display,position(left,right,top,bottom),z-index,width,height,margin,padding,border,background,box-sizing, ~ 자유배치
+// @include, @extend는 마지막에 삽입
+//
+// 8. z-index 가이드
+// 기본 10 증가 폭 5단위
+// 팝업 300 증가폭 10단위
+// 로딩 1000
+
+/***************************************************************************************
+   기본설정, 공통 SCSS
+***************************************************************************************/
+@import "import/common/sprite"; //Sprite Image
+@import "import/common/common"; //공통(mixin, extend(placeholder))
+@import "import/common/base"; //기본설정
+
+/***************************************************************************************
+   Layout
+***************************************************************************************/
+@import "import/layout";
+
+/***************************************************************************************
+   공통 Animation KeyFrame
+***************************************************************************************/
+@import "import/component/animation";
+
+/***************************************************************************************
+   공통 Component
+***************************************************************************************/
+@import "import/component/loading"; //로딩
+@import "import/component/select"; //Select box
+@import "import/component/button"; //Button
+
+/***************************************************************************************
+   화면 별 SCSS
+***************************************************************************************/
+@import "import/page/login"; //로그인
+@import "import/page/commute"; //출퇴근 관리

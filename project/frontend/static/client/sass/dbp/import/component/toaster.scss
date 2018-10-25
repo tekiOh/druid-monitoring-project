@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+/***************************************************************************************
+   Toaster
+***************************************************************************************/
+#toast-container{
+    position:fixed;
+    width:340px;
+    z-index:999999;
+    font-size:13px;
+}
+.toast-top-right {
+    top:73px;
+    right:0;
+    background-color:#fff;
+    color:#333;
+
+    .toast {
+        position:relative;
+        margin-bottom:6px;
+        padding:14px 30px 14px 64px;
+        background-color: #fff; /* layer fill content */
+        -moz-box-shadow: 0 4px 10px rgba(29,37,41,.2); /* drop shadow */
+        -webkit-box-shadow: 0 4px 10px rgba(29,37,41,.2); /* drop shadow */
+        box-shadow: 0 4px 10px rgba(29,37,41,.2); /* drop shadow */
+        &.toast-success {
+            border-left:3px solid #4abccc;
+
+            &:before {
+                position:absolute;
+                top:50%;
+                left:26px;
+                margin-top:-5px;
+                content:'';
+                @include get-sprite($icon_toast_success);
+            }
+        }
+        &.toast-warning {
+            border-left:3px solid #eb2424;
+
+            &:before {
+                position:absolute;
+                top:50%;
+                left:26px;
+                margin-top:-6px;
+                content:'';
+                @include get-sprite($icon_toast_warning);
+            }
+        }
+        &.toast-info {
+            border-left:3px solid #6d828d;
+
+            &:before {
+                position:absolute;
+                top:50%;
+                left:26px;
+                margin-top:-7px;
+                content:'';
+                @include get-sprite($icon_toast_info);
+            }
+        }
+        .toast-close-button {
+            position:absolute;
+            top:12px; right:10px;
+            width:14px;
+            height:14px;
+            text-indent:-300000px;
+            cursor:pointer;
+            content:'';
+            z-index:1;
+            @include get-sprite($btn_toast_close);
+
+            &:hover {
+                @include get-sprite($btn_toast_closeh);
+            }
+        }
+        .toast-message {
+            position:relative;
+            color:#222;
+            font-size:12px;
+            line-height:18px;
+        }
+
+        &:after {
+            display:inline-block;
+            position:absolute;
+            left:0;
+            right:0;
+            bottom:0;
+            height:4px;
+            background-color:#e0e3e7;
+            content:'';
+        }
+    }
+    .toast-progress {
+        position:absolute;
+        bottom:0; left:0; right:0;
+        height:4px;
+        background-color:#c3cace;
+        z-index:10;
+
+
+    }
+}
