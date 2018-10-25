@@ -44,22 +44,27 @@
 ![](https://github.com/pouder-Man/druid-monitoring-project/blob/master/image/04_architecture.PNG)
 
 1. druid
-	 target system, data store
+
+	> target system, data store
 
 2. kafka
-	distributed streaming platfrom
-	druid log data 처리
-
+	
+	> distributed streaming platfrom
+	
 3. django
-	back-end
+	
+	> back-end
 	
 4. react
-	front-end
+
+	> front-end
 	
 5. e-chart
-	visualization chart library
+
+	> visualization chart library
 
 ## 기능
+
 1. overviews
 	* 최근 한시간의 상태
 	* 최근 한시간과 그 직전 한시간의 차이(KPI)
@@ -69,6 +74,7 @@
 	* 노드, 구간, granularity 선택가능
 
 ## 결과
+
 ![](https://github.com/pouder-Man/druid-monitoring-project/blob/master/image/07_result.jpg)
 ![](https://github.com/pouder-Man/druid-monitoring-project/blob/master/image/08_result.jpg)
 ![](https://github.com/pouder-Man/druid-monitoring-project/blob/master/image/09_result.jpg)
