@@ -1,35 +1,0 @@
-./init.sh: line 1: $'\r': command not found
-npm ERR! missing script: dev
-npm ERR! 
-npm ERR! Did you mean this?
-npm ERR!     dev
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/metatron/.npm/_logs/2018-08-14T10_31_14_667Z-debug.log
-./init.sh: line 3: $'\r': command not found
-CommandError: "0.0.0.0:8001" is not a valid port number or address:port pair.
-./init.sh: line 5: $'\r': command not found
-./init.sh: line 1: $'\r': command not found
-npm ERR! missing script: dev
-npm ERR! 
-npm ERR! Did you mean this?
-npm ERR!     dev
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/metatron/.npm/_logs/2018-08-14T10_32_12_098Z-debug.log
-./init.sh: line 3: $'\r': command not found
-CommandError: "0.0.0.0:8001" is not a valid port number or address:port pair.
-./init.sh: line 5: $'\r': command not found
-./init.sh: line 1: $'\r': command not found
-npm ERR! missing script: dev
-npm ERR! 
-npm ERR! Did you mean this?
-npm ERR!     dev
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/metatron/.npm/_logs/2018-08-14T10_33_19_240Z-debug.log
-./init.sh: line 3: $'\r': command not found
-CommandError: "0.0.0.0:8001" is not a valid port number or address:port pair.
-./init.sh: line 5: $'\r': command not found
-CommandError: "0.0.0.0:8001" is not a valid port number or address:port pair.
-CommandError: "0.0.0.0:8001" is not a valid port number or address:port pair.
